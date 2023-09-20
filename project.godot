@@ -11,15 +11,15 @@ config_version=5
 [application]
 
 config/name="TPS Demo"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://demo/Main.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 run/max_fps=60
 config/icon="res://icon.png"
 
 [autoload]
 
-CameraMode="*res://CameraMode/CameraMode.tscn"
-FullScreenHandler="*res://FullScreenHandler.gd"
+CameraMode="*res://demo/CameraMode/CameraMode.tscn"
+FullScreenHandler="*res://demo/FullScreenHandler.gd"
 
 [display]
 
