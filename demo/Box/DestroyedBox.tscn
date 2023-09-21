@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://j4nc13akhgva"]
 
 [ext_resource type="PackedScene" uid="uid://ciohp0157xfv3" path="res://demo/Box/BoxVisuals/DestroyedBox.glb" id="1_ovk58"]
-[ext_resource type="Script" path="res://demo/Box/DestroyedBox.gd" id="2_cv1nk"]
+[ext_resource type="Script" path="res://scripts/Box/DestroyedBox.gdj" id="2_e2rca"]
 
 [node name="DestroyedBox" groups=["damageables", "targeteables"] instance=ExtResource("1_ovk58")]
-script = ExtResource("2_cv1nk")
+script = ExtResource("2_e2rca")
 
 [node name="crate_001" parent="." index="0"]
 visible = false

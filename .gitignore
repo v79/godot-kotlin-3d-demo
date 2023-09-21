@@ -14,6 +14,8 @@ build
 jre-arm64
 jre-amd64
 
+.idea/
+
 graal/godot-kotlin-graal-jni-config.json
 
 *.log

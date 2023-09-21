@@ -1,6 +1,6 @@
 extends RigidBody3D
 
-const COIN_SCENE := preload("res://Player/Coin/Coin.tscn")
+const COIN_SCENE := preload("res://demo/Player/Coin/Coin.tscn")
 const PUFF_SCENE := preload("smoke_puff/smoke_puff.tscn")
 
 @export var coins_count := 5

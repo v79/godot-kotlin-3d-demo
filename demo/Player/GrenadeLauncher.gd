@@ -1,7 +1,7 @@
 class_name GrenadeLauncher
 extends Node3D
 
-const GRENADE_SCENE := preload("res://Player/Grenade.tscn")
+const GRENADE_SCENE := preload("res://demo/Player/Grenade.tscn")
 
 @export var min_throw_distance := 7.0
 @export var max_throw_distance := 16.0
