@@ -212,7 +212,7 @@ func lose_coins() -> void:
 		var coin := COIN_SCENE.instantiate()
 		get_parent().add_child(coin)
 		coin.global_position = global_position
-		coin.spawn(1.5)
+		coin.spawn()
 	_ui_coins_container.update_coins_amount(_coins)
 
 
