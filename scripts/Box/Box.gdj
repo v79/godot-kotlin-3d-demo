@@ -4,7 +4,7 @@ registeredName = Box
 fqName = Box.Box
 baseType = RigidBody3D
 supertypes = [
-    godot.RigidBody3D,
+	godot.RigidBody3D,
 	godot.PhysicsBody3D,
 	godot.CollisionObject3D,
 	godot.Node3D,
@@ -14,12 +14,12 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-    
+	
 ]
 properties = [
-    
+	
 ]
 functions = [
-    _ready,
+	_ready,
 	damage
 ]
