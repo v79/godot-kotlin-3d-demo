@@ -1,4 +1,4 @@
-class_name CameraController
+class_name CameraControllerOld
 extends Node3D
 
 enum CAMERA_PIVOT { OVER_SHOULDER, THIRD_PERSON }

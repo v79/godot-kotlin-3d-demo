@@ -114,12 +114,12 @@ func _physics_process(delta: float) -> void:
 
 	# Set aiming camera and UI
 	if is_aiming:
-		_camera_controller.set_pivot(_camera_controller.CAMERA_PIVOT.OVER_SHOULDER)
+		_camera_controller.set_pivot(0)
 		_grenade_aim_controller.throw_direction = _camera_controller.camera.quaternion * Vector3.FORWARD
 		_grenade_aim_controller.from_look_position = _camera_controller.camera.global_position
 		_ui_aim_recticle.visible = true
 	else:
-		_camera_controller.set_pivot(_camera_controller.CAMERA_PIVOT.THIRD_PERSON)
+		_camera_controller.set_pivot(1)
 		_grenade_aim_controller.throw_direction = _last_strong_direction
 		_grenade_aim_controller.from_look_position = global_position
 		_ui_aim_recticle.visible = false
@@ -188,8 +188,8 @@ func shoot() -> void:
 	var bullet := BULLET_SCENE.instantiate()
 	bullet.shooter = self
 	var origin := global_position + Vector3.UP
-	var aim_target := _camera_controller.get_aim_target()
-	var aim_direction := (aim_target - origin).normalized()
+	var aim_target = _camera_controller.get_aim_etarget()
+	var aim_direction = (aim_target - origin).normalized()
 	bullet.velocity = aim_direction * bullet_speed
 	bullet.distance_limit = 14.0
 	get_parent().add_child(bullet)

@@ -1,8 +1,8 @@
 [gd_scene load_steps=19 format=3 uid="uid://ciqrpd5675boy"]
 
 [ext_resource type="Script" path="res://demo/Player/Player.gd" id="1_rvo1c"]
+[ext_resource type="Script" path="res://scripts/Player/CameraController.gdj" id="2_nuakl"]
 [ext_resource type="PackedScene" uid="uid://b2ew46dlu7u7x" path="res://demo/Player/GrenadeLauncher.tscn" id="3_54qc4"]
-[ext_resource type="Script" path="res://demo/Player/CameraController.gd" id="3_qrkly"]
 [ext_resource type="Script" path="res://demo/Player/MeleeAttackArea.gd" id="3_v1vve"]
 [ext_resource type="PackedScene" uid="uid://c0mo8tek77du4" path="res://demo/Player/CharacterSkin.tscn" id="4_ign62"]
 [ext_resource type="Script" path="res://demo/Player/CoinsContainer.gd" id="7_8eehq"]
@@ -116,12 +116,17 @@ acceleration = 6.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_8x2xm")
 
-[node name="CameraController" type="Node3D" parent="."]
+[node name="CameraController" type="Node3D" parent="." node_paths=PackedStringArray("camera", "over_shoulder_pivot", "camera_spring_arm", "third_person_pivot", "camera_ray_cast")]
 top_level = true
-script = ExtResource("3_qrkly")
+script = ExtResource("2_nuakl")
 invert_mouse_y = true
 tilt_upper_limit = 0.48
 tilt_lower_limit = -0.8
+camera = NodePath("PlayerCamera")
+over_shoulder_pivot = NodePath("CameraOverShoulderPivot")
+camera_spring_arm = NodePath("CameraSpringArm")
+third_person_pivot = NodePath("CameraSpringArm/CameraThirdPersonPivot")
+camera_ray_cast = NodePath("PlayerCamera/CameraRayCast")
 
 [node name="CameraOverShoulderPivot" type="Marker3D" parent="CameraController"]
 transform = Transform3D(-0.994522, 0.0400013, -0.0965717, 0, 0.92388, 0.382683, 0.104528, 0.380587, -0.918818, -0.848491, 3.48765, -2.32639)
