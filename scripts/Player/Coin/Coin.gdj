@@ -4,7 +4,7 @@ registeredName = Coin
 fqName = Player.Coin.Coin
 baseType = RigidBody3D
 supertypes = [
-	godot.RigidBody3D,
+    godot.RigidBody3D,
 	godot.PhysicsBody3D,
 	godot.CollisionObject3D,
 	godot.Node3D,
@@ -14,14 +14,14 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-	
+    
 ]
 properties = [
-	collect_audio,
+    collect_audio,
 	player_detection_area
 ]
 functions = [
-	_ready,
+    _ready,
 	spawn,
 	follow,
 	collect,
