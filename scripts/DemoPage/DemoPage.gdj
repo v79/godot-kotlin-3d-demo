@@ -1,0 +1,29 @@
+// THIS FILE IS GENERATED! DO NOT EDIT, MOVE OR DELETE IT. EDIT, MOVE OR DELETE THE ASSOCIATED SOURCE CODE FILE INSTEAD
+
+registeredName = DemoPage
+fqName = DemoPage.DemoPage
+baseType = Node
+supertypes = [
+    godot.Node,
+	godot.Object,
+	godot.core.KtObject,
+	kotlin.Any
+]
+signals = [
+    
+]
+properties = [
+    demo_page_root,
+	resume_button,
+	exit_button,
+	keyboard_button,
+	joypad_button,
+	grid_container_keyboard,
+	grid_container_joypad
+]
+functions = [
+    _ready,
+	_input,
+	change_instruction,
+	resume_demo
+]
