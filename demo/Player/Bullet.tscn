@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bguebyvtegnv8"]
 
-[ext_resource type="Script" path="res://demo/Player/Bullet.gd" id="1_8b555"]
+[ext_resource type="Script" path="res://scripts/Player/Bullet.gdj" id="1_nhtye"]
 [ext_resource type="PackedScene" uid="uid://5ttf446nggra" path="res://demo/Player/BulletVisuals/BulletModel.tscn" id="2_68e7a"]
 [ext_resource type="AudioStream" uid="uid://c7w6ecthdjbuk" path="res://demo/Player/Sounds/lasershot-102078.wav" id="3_3vyow"]
 
@@ -11,10 +11,13 @@ point_count = 3
 [sub_resource type="SphereShape3D" id="SphereShape3D_qbh4s"]
 radius = 0.1
 
-[node name="Bullet" type="Node3D"]
-script = ExtResource("1_8b555")
+[node name="Bullet" type="Node3D" node_paths=PackedStringArray("area", "bullet_visuals", "projectile_sound")]
+script = ExtResource("1_nhtye")
 scale_decay = SubResource("Curve_2sbfy")
 distance_limit = 6.0
+area = NodePath("Area3d")
+bullet_visuals = NodePath("Bullet")
+projectile_sound = NodePath("ProjectileSound")
 
 [node name="Area3d" type="Area3D" parent="."]
 

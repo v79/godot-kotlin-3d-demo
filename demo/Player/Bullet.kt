@@ -1,0 +1,82 @@
+package Player
+
+import godot.Area3D
+import godot.AudioStreamPlayer3D
+import godot.Curve
+import godot.Node
+import godot.Node3D
+import godot.annotation.Export
+import godot.annotation.RegisterClass
+import godot.annotation.RegisterFunction
+import godot.annotation.RegisterProperty
+import godot.core.Vector3
+import godot.core.asStringName
+import godot.global.GD
+import shared.Damageable
+
+@RegisterClass
+class Bullet: Node3D() {
+
+    @Export
+    @RegisterProperty
+    lateinit var scaleDecay: Curve
+    @Export
+    @RegisterProperty
+    var distanceLimit: Float = 5f
+
+    @RegisterProperty
+    var shooter: Node? = null
+
+    @RegisterProperty
+    var velocity: Vector3 = Vector3.ZERO
+
+    @Export
+    @RegisterProperty
+    lateinit var area: Area3D
+    @Export
+    @RegisterProperty
+    lateinit var bulletVisuals: Node3D
+    @Export
+    @RegisterProperty
+    lateinit var projectileSound: AudioStreamPlayer3D
+
+    private var timeAlive = 0.0
+    private var aliveLimit = 0.0
+
+    @RegisterFunction
+    override fun _ready() {
+        area.bodyEntered.connect(this, ::onBodyEntered)
+        lookAt(globalPosition + velocity)
+        aliveLimit = distanceLimit / velocity.length()
+        projectileSound.pitchScale = GD.randfRange(1f, 0.1f)
+        projectileSound.play()
+    }
+
+    @RegisterFunction
+    override fun _process(delta: Double) {
+        globalPosition += velocity * delta
+        timeAlive += delta
+
+        bulletVisuals.scale = Vector3.ONE * scaleDecay.sample((timeAlive / aliveLimit).toFloat())
+
+        if (timeAlive > aliveLimit) {
+            queueFree()
+        }
+    }
+
+    @RegisterFunction
+    fun onBodyEntered(body: Node3D) {
+        if (body == shooter) return
+        if (body.isInGroup("damageables".asStringName())) {
+            val impactPoint = globalPosition - body.globalPosition
+
+            if (body is Damageable) {
+                // efficient for kotlin scripts
+                body.damage(impactPoint, velocity)
+            } else if (body.hasMethod("damage".asStringName())) {
+                // more expensive for any other language
+                body.call("damage".asStringName(), impactPoint, velocity)
+            }
+        }
+    }
+}
