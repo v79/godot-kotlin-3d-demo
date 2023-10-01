@@ -1,8 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://ciqrpd5675boy"]
+[gd_scene load_steps=21 format=3 uid="uid://ciqrpd5675boy"]
 
-[ext_resource type="Script" path="res://demo/Player/Player.gd" id="1_rvo1c"]
+[ext_resource type="Script" path="res://scripts/Player/Player.gdj" id="1_beums"]
+[ext_resource type="PackedScene" uid="uid://bguebyvtegnv8" path="res://demo/Player/Bullet.tscn" id="2_ck433"]
 [ext_resource type="Script" path="res://scripts/Player/CameraController.gdj" id="2_nuakl"]
 [ext_resource type="PackedScene" uid="uid://b2ew46dlu7u7x" path="res://demo/Player/GrenadeLauncher.tscn" id="3_54qc4"]
+[ext_resource type="PackedScene" uid="uid://c54mpt43fs4wc" path="res://demo/Player/Coin/Coin.tscn" id="3_rga6y"]
 [ext_resource type="PackedScene" uid="uid://c0mo8tek77du4" path="res://demo/Player/CharacterSkin.tscn" id="4_ign62"]
 [ext_resource type="Script" path="res://scripts/Player/MeleeAttackArea.gdj" id="4_ish5t"]
 [ext_resource type="Script" path="res://scripts/Player/CoinsContainer.gdj" id="6_8jksa"]
@@ -104,13 +106,25 @@ _data = {
 radius = 0.721485
 height = 2.65424
 
-[node name="Player" type="CharacterBody3D" groups=["damageables"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("rotation_root", "camera_controller", "attack_animation_player", "ground_shapecast", "grenade_aim_controller", "character_skin", "ui_aim_recticle", "ui_coins_container", "step_sound", "landing_sound") groups=["damageables"]]
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
-script = ExtResource("1_rvo1c")
+script = ExtResource("1_beums")
+bullet_scene = ExtResource("2_ck433")
+coin_scene = ExtResource("3_rga6y")
 bullet_speed = 14.0
 acceleration = 6.0
+rotation_root = NodePath("CharacterRotationRoot")
+camera_controller = NodePath("CameraController")
+attack_animation_player = NodePath("CharacterRotationRoot/MeleeAnchor/AnimationPlayer")
+ground_shapecast = NodePath("GroundShapeCast")
+grenade_aim_controller = NodePath("GrenadeLauncher")
+character_skin = NodePath("CharacterRotationRoot/CharacterSkin")
+ui_aim_recticle = NodePath("PlayerUI/AimRecticle")
+ui_coins_container = NodePath("PlayerUI/CoinsContainer")
+step_sound = NodePath("StepSound")
+landing_sound = NodePath("LandingSound")
 
 [node name="CharacterCollisionShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

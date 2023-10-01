@@ -75,7 +75,7 @@ class CameraController : Node3D() {
     private var rotationInput: Double = 0.0
     private var tiltInput: Double = 0.0
     private var offset: Vector3 = Vector3.ZERO
-    private lateinit var anchor: Node3D
+    private lateinit var anchor: Player
     private val eulerRotation: Vector3 = Vector3.ZERO
 
     private val cameraLeftAction = "camera_left".asStringName()
@@ -113,7 +113,7 @@ class CameraController : Node3D() {
 
         // Set camera controller to current ground level for the character
         val targetPosition = anchor.globalPosition + offset
-        targetPosition.y = GD.lerp(globalPosition.y, /*FIXME: replace with property access on player class*/anchor.get("_ground_height".asStringName()) as Double, 0.1)
+        targetPosition.y = GD.lerp(globalPosition.y, anchor.groundHeight, 0.1)
         globalPosition = targetPosition
 
         // Rotates camera using euler rotation
@@ -131,7 +131,7 @@ class CameraController : Node3D() {
     }
 
     @RegisterFunction
-    fun setup(anchor: /*FIXME: make player*/CharacterBody3D) {
+    fun setup(anchor: Player) {
         this.anchor = anchor
         this.offset = this.globalTransform.origin - anchor.globalTransform.origin
         setPivot(CameraPivot.THIRD_PERSON.ordinal)

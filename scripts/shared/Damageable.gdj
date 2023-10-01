@@ -1,0 +1,17 @@
+// THIS FILE IS GENERATED! DO NOT EDIT, MOVE OR DELETE IT. EDIT, MOVE OR DELETE THE ASSOCIATED SOURCE CODE FILE INSTEAD
+
+registeredName = Damageable
+fqName = shared.Damageable
+baseType = 
+supertypes = [
+    kotlin.Any
+]
+signals = [
+    
+]
+properties = [
+    
+]
+functions = [
+    damage
+]
