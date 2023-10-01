@@ -10,7 +10,7 @@ import godot.core.Vector3
 import godot.core.asStringName
 
 @RegisterClass
-class Grenade: Node3D() {
+class GrenadeVisuals: Node3D() {
     @Export
     @RegisterProperty
     lateinit var animationPlayer: AnimationPlayer

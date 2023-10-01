@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bq562nfq7puh"]
+[gd_scene load_steps=7 format=3 uid="uid://bq562nfq7puh"]
 
-[ext_resource type="Script" path="res://demo/Player/Grenade.gd" id="1_ak024"]
+[ext_resource type="Script" path="res://scripts/Player/Grenade.gdj" id="1_0w3wd"]
 [ext_resource type="PackedScene" uid="uid://d3765dge2xh0" path="res://demo/Player/GrenadeVisuals/grenade/grenade.tscn" id="2_6f7t1"]
+[ext_resource type="PackedScene" uid="uid://e7p4xvo51lbl" path="res://demo/Player/ExplosionVisuals/explosion_scene.tscn" id="2_ce8i2"]
 [ext_resource type="AudioStream" uid="uid://csou1m38pk3m4" path="res://demo/Player/Sounds/musket-explosion-6383.wav" id="3_7x8ud"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wbj5b"]
@@ -10,10 +11,14 @@ radius = 3.0
 [sub_resource type="SphereShape3D" id="SphereShape3D_nac87"]
 radius = 0.1
 
-[node name="Grenade" type="CharacterBody3D"]
+[node name="Grenade" type="CharacterBody3D" node_paths=PackedStringArray("explosion_area3_d", "explosion_sound", "explosion_start_timer")]
 top_level = true
 collision_layer = 0
-script = ExtResource("1_ak024")
+script = ExtResource("1_0w3wd")
+explosion_scene = ExtResource("2_ce8i2")
+explosion_area3_d = NodePath("ExplosionArea")
+explosion_sound = NodePath("ExplosionSound")
+explosion_start_timer = NodePath("ExplosionStartTimer")
 
 [node name="ExplosionArea" type="Area3D" parent="."]
 
