@@ -1,5 +1,6 @@
 package Player
 
+import Player.Coin.Coin
 import godot.HBoxContainer
 import godot.Label
 import godot.Timer
@@ -24,7 +25,7 @@ class CoinsContainer: HBoxContainer() {
 
     @RegisterFunction
     override fun _ready() {
-        displayTimer.timeout.connect(this, ::onTimeout)
+        displayTimer.timeout.connect(this, CoinsContainer::onTimeout)
     }
 
     @RegisterFunction

@@ -45,7 +45,7 @@ class Bullet: Node3D() {
 
     @RegisterFunction
     override fun _ready() {
-        area.bodyEntered.connect(this, ::onBodyEntered)
+        area.bodyEntered.connect(this, Bullet::onBodyEntered)
         lookAt(globalPosition + velocity)
         aliveLimit = distanceLimit / velocity.length()
         projectileSound.pitchScale = GD.randfRange(1f, 0.1f)

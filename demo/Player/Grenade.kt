@@ -42,7 +42,7 @@ class Grenade: CharacterBody3D() {
 
     @RegisterFunction
     override fun _ready() {
-        explosionStartTimer.timeout.connect(this, ::explode)
+        explosionStartTimer.timeout.connect(this, Grenade::explode)
     }
 
     @RegisterFunction
@@ -95,6 +95,6 @@ class Grenade: CharacterBody3D() {
         }
 
         hide()
-        explosionSound.finished.connect(this, ::queueFree, ConnectFlags.CONNECT_ONE_SHOT.id.toInt())
+        explosionSound.finished.connect(this, Grenade::queueFree, ConnectFlags.CONNECT_ONE_SHOT.id.toInt())
     }
 }

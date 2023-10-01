@@ -8,7 +8,6 @@ import godot.ResourceLoader
 import godot.RigidBody3D
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
-import godot.core.Callable
 import godot.core.StringName
 import godot.core.Vector3
 import godot.extensions.getNodeAs
@@ -49,6 +48,6 @@ class Box : RigidBody3D() {
         collisionShape.setDeferred(disableName, true)
         destroySound.pitchScale = GD.randfn(1.0f, 0.1f)
         destroySound.play()
-        destroySound.finished.connect(Callable(::queueFree), 0)
+        destroySound.finished.connect(this, Box::queueFree)
     }
 }

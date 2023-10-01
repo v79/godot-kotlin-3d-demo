@@ -49,8 +49,8 @@ class Coin : RigidBody3D() {
         randPos.y = randHeight
         applyCentralImpulse(randPos)
 
-        getTree()!!.createTimer(0.5)!!.timeout.connect(this, ::onCoinDelayTimeout)
-        playerDetectionArea.bodyEntered.connect(this, ::onBodyEntered)
+        getTree()!!.createTimer(0.5)!!.timeout.connect(this, Coin::onCoinDelayTimeout)
+        playerDetectionArea.bodyEntered.connect(this, Coin::onBodyEntered)
     }
 
     fun setTarget(newTarget: PhysicsBody3D) {
@@ -79,7 +79,7 @@ class Coin : RigidBody3D() {
         collectAudio.play()
         target!!.call(StringName("collect_coin"))
         hide()
-        collectAudio.finished.connect(Callable(::queueFree), 0)
+        collectAudio.finished.connect(this, Coin::queueFree)
     }
 
     @RegisterFunction
