@@ -68,7 +68,7 @@ class Grenade: CharacterBody3D() {
     fun explode() {
         setPhysicsProcess(false)
 
-        explosionSound.pitchScale = GD.randfRange(2f, 0.1f)
+        explosionSound.pitchScale = GD.randfn(2f, 0.1f)
         explosionSound.play()
 
         explosionArea3D

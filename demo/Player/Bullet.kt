@@ -48,7 +48,7 @@ class Bullet: Node3D() {
         area.bodyEntered.connect(this, Bullet::onBodyEntered)
         lookAt(globalPosition + velocity)
         aliveLimit = distanceLimit / velocity.length()
-        projectileSound.pitchScale = GD.randfRange(1f, 0.1f)
+        projectileSound.pitchScale = GD.randfn(1f, 0.1f)
         projectileSound.play()
     }
 

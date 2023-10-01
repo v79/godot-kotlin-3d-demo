@@ -353,7 +353,7 @@ class Player : CharacterBody3D(), Damageable {
 
     @RegisterFunction
     fun playFootStepSound() {
-        stepSound.pitchScale = GD.randfRange(1.2f, 0.2f)
+        stepSound.pitchScale = GD.randfn(1.2f, 0.2f)
         stepSound.play()
     }
 
