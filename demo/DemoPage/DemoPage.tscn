@@ -1,6 +1,6 @@
 [gd_scene load_steps=33 format=3 uid="uid://cnj0t3ad178q6"]
 
-[ext_resource type="Script" path="res://demo/DemoPage/DemoPage.gd" id="1_4brsx"]
+[ext_resource type="Script" path="res://scripts/DemoPage/DemoPage.gdj" id="1_rvp4j"]
 [ext_resource type="Shader" path="res://demo/DemoPage/Assets/BlurShader.gdshader" id="2_07raf"]
 [ext_resource type="Texture2D" uid="uid://3fxtm3u8im2" path="res://demo/DemoPage/Assets/gdquest_logo_white.svg" id="3_n7elw"]
 [ext_resource type="Texture2D" uid="uid://c1h5gk8rsf3va" path="res://demo/DemoPage/Assets/RoundedRectangle.png" id="4_paxwi"]
@@ -50,9 +50,16 @@ font_size = 32
 font = ExtResource("7_8vsh6")
 font_size = 26
 
-[node name="DemoPage" type="Node"]
+[node name="DemoPage" type="Node" node_paths=PackedStringArray("demo_page_root", "resume_button", "exit_button", "keyboard_button", "joypad_button", "grid_container_keyboard", "grid_container_joypad")]
 process_mode = 3
-script = ExtResource("1_4brsx")
+script = ExtResource("1_rvp4j")
+demo_page_root = NodePath("CanvasLayer/DemoPageRoot")
+resume_button = NodePath("CanvasLayer/DemoPageRoot/Content/MarginContainer/Buttons/Resume")
+exit_button = NodePath("CanvasLayer/DemoPageRoot/Content/MarginContainer/Buttons/Exit")
+keyboard_button = NodePath("CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/ButtonContainer/KeyboardButton")
+joypad_button = NodePath("CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/ButtonContainer/JoypadButton")
+grid_container_keyboard = NodePath("CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerKeyboard")
+grid_container_joypad = NodePath("CanvasLayer/DemoPageRoot/Content/Content/GameDescription/MarginContainer/ContentContainer/ControlsDescription/MarginContainer/VBoxContainer/GridContainerJoypad")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 128
