@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://xhe0n1psocjo" path="res://demo/DemoPage/ControllerIcons/wasd.png" id="8_ftfx8"]
 [ext_resource type="Texture2D" uid="uid://078sfj6nla2e" path="res://demo/DemoPage/ControllerIcons/spacebar2.png" id="9_0yun6"]
 [ext_resource type="Texture2D" uid="uid://dr3g38uhvcdhd" path="res://demo/DemoPage/ControllerIcons/joystickL_side.png" id="9_16jmy"]
-[ext_resource type="Script" path="res://demo/DemoPage/LinkButton.gd" id="9_scsih"]
 [ext_resource type="Texture2D" uid="uid://cgkvjl80iqkeg" path="res://demo/DemoPage/ControllerIcons/tab.png" id="10_6dsjm"]
 [ext_resource type="Texture2D" uid="uid://tfus7d2ysvap" path="res://demo/DemoPage/ControllerIcons/keyboard.png" id="10_uxdfh"]
 [ext_resource type="Texture2D" uid="uid://drxg34lsicm31" path="res://demo/DemoPage/ControllerIcons/mouse.png" id="10_y1v2l"]
@@ -25,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://cwxudh6hj0dx" path="res://demo/DemoPage/ControllerIcons/l2_button.png" id="19_ymr5x"]
 [ext_resource type="Texture2D" uid="uid://dnk6rxv8ejgny" path="res://demo/DemoPage/ControllerIcons/buttonStart.png" id="21_hfiqr"]
 [ext_resource type="Texture2D" uid="uid://u8dgw2xh1ofy" path="res://demo/DemoPage/Assets/discord-icon.png" id="24_2yjb0"]
+[ext_resource type="Script" path="res://scripts/DemoPage/LinkButton.gdj" id="25_a582v"]
 [ext_resource type="Texture2D" uid="uid://4028ms3tu0f0" path="res://demo/DemoPage/Assets/twitter-icon.png" id="26_jj2ra"]
 [ext_resource type="Texture2D" uid="uid://bu5fw8vbrfsmm" path="res://demo/DemoPage/Assets/itch-icon.png" id="27_mjmj1"]
 
@@ -521,7 +521,7 @@ mouse_default_cursor_shape = 2
 texture_normal = ExtResource("24_2yjb0")
 ignore_texture_size = true
 stretch_mode = 5
-script = ExtResource("9_scsih")
+script = ExtResource("25_a582v")
 link = "https://discord.gg/BDe4y6Z4cf"
 
 [node name="TwitterButton" type="TextureButton" parent="CanvasLayer/DemoPageRoot/HBoxContainer"]
@@ -531,7 +531,7 @@ mouse_default_cursor_shape = 2
 texture_normal = ExtResource("26_jj2ra")
 ignore_texture_size = true
 stretch_mode = 5
-script = ExtResource("9_scsih")
+script = ExtResource("25_a582v")
 link = "https://twitter.com/NathanGDQuest"
 
 [node name="ItchButton" type="TextureButton" parent="CanvasLayer/DemoPageRoot/HBoxContainer"]
@@ -541,5 +541,5 @@ mouse_default_cursor_shape = 2
 texture_normal = ExtResource("27_mjmj1")
 ignore_texture_size = true
 stretch_mode = 5
-script = ExtResource("9_scsih")
+script = ExtResource("25_a582v")
 link = "https://gdquest.itch.io/"

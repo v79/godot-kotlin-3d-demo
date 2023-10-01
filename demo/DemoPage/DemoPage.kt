@@ -10,10 +10,11 @@ import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
+import godot.core.Callable
 import godot.core.Color
 import godot.core.asStringName
-import godot.core.callable
 import godot.extensions.asNodePath
+import godot.util.camelToSnakeCase
 
 @RegisterClass
 class DemoPage : Node() {
@@ -52,6 +53,10 @@ class DemoPage : Node() {
 
     private var demoMouseMode: Input.MouseMode = Input.MouseMode.MOUSE_MODE_VISIBLE
 
+    private val changeInstructionName = "changeInstruction".camelToSnakeCase().asStringName()
+    private val quitName = "quit".camelToSnakeCase().asStringName()
+    private val hideName = "hide".camelToSnakeCase().asStringName()
+
     @RegisterFunction
     override fun _ready() {
         val tree = getTree() ?: return
@@ -59,16 +64,23 @@ class DemoPage : Node() {
         demoMouseMode = Input.getMouseMode()
         Input.setMouseMode(Input.MouseMode.MOUSE_MODE_VISIBLE)
 
-        resumeButton.pressed.connect(this, ::resumeDemo)
-        exitButton.pressed.connect(callable { getTree()?.quit() })
-        keyboardButton.pressed.connect(callable { changeInstruction(InstructionType.KEYBOARD) })
-        joypadButton.pressed.connect(callable { changeInstruction(InstructionType.JOYPAD) })
+        resumeButton.pressed.connect(this, DemoPage::resumeDemo)
+
+        val quitCallable = Callable(getTree()!!, quitName).bind(0)
+        exitButton.pressed.connect(quitCallable)
+
+        val changeCallable = Callable(this, changeInstructionName)
+        val keyboardCallable = changeCallable.bind(InstructionType.KEYBOARD.ordinal)
+        val joypadCallable = changeCallable.bind(InstructionType.JOYPAD.ordinal)
+
+        keyboardButton.pressed.connect(keyboardCallable)
+        joypadButton.pressed.connect(joypadCallable)
 
         changeInstruction(
             if (Input.getConnectedJoypads().isNotEmpty()) {
-                InstructionType.JOYPAD
+                InstructionType.JOYPAD.ordinal
             } else {
-                InstructionType.KEYBOARD
+                InstructionType.KEYBOARD.ordinal
             }
         )
     }
@@ -85,15 +97,15 @@ class DemoPage : Node() {
     }
 
     @RegisterFunction
-    fun changeInstruction(type: InstructionType) {
+    fun changeInstruction(type: Int) {
         when(type) {
-            InstructionType.KEYBOARD -> {
+            InstructionType.KEYBOARD.ordinal -> {
                 keyboardButton.modulate = keyboardButton.modulate.apply { a = 1.0 }
                 joypadButton.modulate = keyboardButton.modulate.apply { a = 0.3 }
                 gridContainerKeyboard.show()
                 gridContainerJoypad.hide()
             }
-            InstructionType.JOYPAD -> {
+            InstructionType.JOYPAD.ordinal -> {
                 keyboardButton.modulate = keyboardButton.modulate.apply { a = 0.3 }
                 joypadButton.modulate = keyboardButton.modulate.apply { a = 1.0 }
                 gridContainerKeyboard.hide()
@@ -118,8 +130,9 @@ class DemoPage : Node() {
         getTree()?.let { it.paused = false }
         createTween()?.apply {
             tweenProperty(demoPageRoot, demoPageRoot::modulate.name.asNodePath(), Color.transparent, 0.3)
-            tweenCallback(callable { demoPageRoot.hide() })
+            tweenCallback(Callable(demoPageRoot, hideName))
         }
+
         Input.setMouseMode(demoMouseMode)
     }
 }

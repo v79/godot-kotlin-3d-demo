@@ -188,7 +188,7 @@ func shoot() -> void:
 	var bullet := BULLET_SCENE.instantiate()
 	bullet.shooter = self
 	var origin := global_position + Vector3.UP
-	var aim_target = _camera_controller.get_aim_etarget()
+	var aim_target = _camera_controller.get_aim_target()
 	var aim_direction = (aim_target - origin).normalized()
 	bullet.velocity = aim_direction * bullet_speed
 	bullet.distance_limit = 14.0
