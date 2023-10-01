@@ -195,8 +195,9 @@ class Player : CharacterBody3D(), Damageable {
 
         // To not orient quickly to the last input, we save a last strong direction,
         // this also ensures a good normalized value for the rotation basis.
-        if (moveDirection.length() > 2.0) {
+        if (moveDirection.length() > 0.2) {
             lastStrongDirection = moveDirection.normalized()
+            println(lastStrongDirection)
         }
 
         if (isAiming) {
