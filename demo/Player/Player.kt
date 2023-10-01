@@ -197,7 +197,6 @@ class Player : CharacterBody3D(), Damageable {
         // this also ensures a good normalized value for the rotation basis.
         if (moveDirection.length() > 0.2) {
             lastStrongDirection = moveDirection.normalized()
-            println(lastStrongDirection)
         }
 
         if (isAiming) {
