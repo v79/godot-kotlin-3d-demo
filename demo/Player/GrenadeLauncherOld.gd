@@ -1,4 +1,4 @@
-class_name GrenadeLauncher
+class_name GrenadeLauncherOld
 extends Node3D
 
 const GRENADE_SCENE := preload("res://demo/Player/Grenade.tscn")
