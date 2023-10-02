@@ -135,7 +135,7 @@ class Player : CharacterBody3D(), Damageable {
     private var moveDirection = Vector3.ZERO
     private var lastStrongDirection = Vector3.FORWARD
     private val gravity = -30.0
-    private val startPosition by lazy { globalPosition }
+    private lateinit var startPosition: Vector3
     private var coins = 0
     private var isOnFloorBuffer = false
 
@@ -144,6 +144,7 @@ class Player : CharacterBody3D(), Damageable {
 
     @RegisterFunction
     override fun _ready() {
+        startPosition = globalPosition
         Input.setMouseMode(Input.MouseMode.MOUSE_MODE_CAPTURED)
         cameraController.setup(this)
         grenadeAimController.visible = false
@@ -207,12 +208,12 @@ class Player : CharacterBody3D(), Damageable {
 
         // We separate out the y velocity to not interpolate on the gravity
         val yVelocity = velocity.y
-        velocity = velocity.apply { y = 0.0 }
+        velocityMutate { y = 0.0 }
         velocity = velocity.lerp(moveDirection * moveSpeed, acceleration * delta)
         if (moveDirection.length() == 0.0 && velocity.length() < stoppingSpeed) {
             velocity = Vector3.ZERO
         }
-        velocity = velocity.apply { y = yVelocity }
+        velocityMutate { y = yVelocity }
 
         // Set aiming camera and UI
         if (isAiming) {
@@ -249,12 +250,12 @@ class Player : CharacterBody3D(), Damageable {
             }
         }
 
-        velocity = velocity.apply { y += gravity * delta }
+        velocityMutate { y += gravity * delta }
 
         if (isJustJumping) {
-            velocity = velocity.apply { y += jumpInitialImpulse }
+            velocityMutate { y += jumpInitialImpulse }
         } else if (isAirBoosting) {
-            velocity = velocity.apply { y += jumpAdditionalForce * delta }
+            velocityMutate { y += jumpAdditionalForce * delta }
         }
 
         // Set character animation
@@ -308,8 +309,8 @@ class Player : CharacterBody3D(), Damageable {
     }
 
     @RegisterFunction
-    fun resetPosition() {
-        transform.origin = startPosition
+    fun resetPosition() = transformMutate {
+        origin = startPosition
     }
 
     @RegisterFunction
@@ -378,7 +379,7 @@ class Player : CharacterBody3D(), Damageable {
                 .slerp(rotationBasis, delta * rotationSpeed)
         ).scaled(modelScale)
 
-        rotationRoot.transform = rotationRoot.transform.apply { basis = newBasis }
+        rotationRoot.transformMutate{ basis = newBasis }
     }
 
     // Used to register required input actions when copying this character to a different project.

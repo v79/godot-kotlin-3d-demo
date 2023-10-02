@@ -92,13 +92,14 @@ class CameraMode : Node3D() {
         val tiltInput = -Input.getLastMouseVelocity().y * mouseSensitivity
 
         camera?.let { camera3D ->
-            val eulerRotation = camera3D.globalTransform.basis.getEuler().apply {
-                x += tiltInput * delta
-                x = GD.clamp(x, -PI + 0.01, PI - 0.01)
-                y += rotationInput * delta
+            camera3D.globalTransformMutate {
+                with(basis.getEuler()) {
+                    x += tiltInput * delta
+                    x = GD.clamp(x, -PI + 0.01, PI - 0.01)
+                    y += rotationInput * delta
+                    basis = Basis.fromEuler(this)
+                }
             }
-
-            camera3D.globalTransform = camera3D.globalTransform.apply { basis = Basis.fromEuler(eulerRotation) }
             camera3D.globalPosition += camera3D.globalTransform.basis * movement * delta * cameraSpeed
         }
     }

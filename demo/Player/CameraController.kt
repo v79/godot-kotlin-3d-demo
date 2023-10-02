@@ -1,7 +1,6 @@
 package Player
 
 import godot.Camera3D
-import godot.CharacterBody3D
 import godot.Input
 import godot.InputEvent
 import godot.InputEventMouseMotion
@@ -15,7 +14,6 @@ import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
 import godot.core.Basis
-import godot.core.NodePath
 import godot.core.Vector3
 import godot.core.asStringName
 import godot.global.GD
@@ -121,10 +119,14 @@ class CameraController : Node3D() {
         eulerRotation.x = GD.clamp(eulerRotation.x, tiltLowerLimit, tiltUpperLimit)
         eulerRotation.y += rotationInput * delta
 
-        transform = transform.apply { basis = Basis.fromEuler(eulerRotation) }
+        transformMutate {
+            basis = Basis.fromEuler(eulerRotation)
+        }
 
         camera.globalTransform = pivot.globalTransform
-        camera.rotation = camera.rotation.apply { z = 0.0 }
+        camera.rotationMutate {
+            z = 0.0
+        }
 
         rotationInput = 0.0
         tiltInput = 0.0
@@ -145,13 +147,13 @@ class CameraController : Node3D() {
         val pivotType = CameraPivot.entries[pivotOrdinal]
         if (pivotType == currentPivotType) return
 
-        when (pivotType) {
+        pivot = when (pivotType) {
             CameraPivot.OVER_SHOULDER -> {
                 overShoulderPivot.lookAt(aimTarget)
-                pivot = overShoulderPivot
+                overShoulderPivot
             }
 
-            CameraPivot.THIRD_PERSON -> pivot = thirdPersonPivot
+            CameraPivot.THIRD_PERSON -> thirdPersonPivot
         }
         currentPivotType = pivotType
     }

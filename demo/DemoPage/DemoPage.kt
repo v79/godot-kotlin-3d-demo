@@ -100,14 +100,14 @@ class DemoPage : Node() {
     fun changeInstruction(type: Int) {
         when(type) {
             InstructionType.KEYBOARD.ordinal -> {
-                keyboardButton.modulate = keyboardButton.modulate.apply { a = 1.0 }
-                joypadButton.modulate = keyboardButton.modulate.apply { a = 0.3 }
+                keyboardButton.modulateMutate { a = 1.0 }
+                joypadButton.modulateMutate{ a = 0.3 }
                 gridContainerKeyboard.show()
                 gridContainerJoypad.hide()
             }
             InstructionType.JOYPAD.ordinal -> {
-                keyboardButton.modulate = keyboardButton.modulate.apply { a = 0.3 }
-                joypadButton.modulate = keyboardButton.modulate.apply { a = 1.0 }
+                keyboardButton.modulateMutate { a = 0.3 }
+                joypadButton.modulateMutate { a = 1.0 }
                 gridContainerKeyboard.hide()
                 gridContainerJoypad.show()
             }
