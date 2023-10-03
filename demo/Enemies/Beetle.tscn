@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://oxyn25v5khuk"]
 
-[ext_resource type="Script" path="res://demo/Enemies/Beetle.gd" id="1_mefon"]
+[ext_resource type="Script" path="res://scripts/Enemies/Beetle.gdj" id="1_8xysi"]
 [ext_resource type="PackedScene" uid="uid://cxt8d0d4ift6" path="res://demo/Enemies/beetle_bot/beetlebot_skin.tscn" id="2_1wpkj"]
 [ext_resource type="AudioStream" uid="uid://c66nnoqtanfw2" path="res://demo/Enemies/Sounds/robot_defeat.wav" id="3_w5eam"]
 
@@ -101,14 +101,21 @@ radius = 0.489449
 [sub_resource type="BoxShape3D" id="BoxShape3D_bm81s"]
 size = Vector3(1.4, 0.2, 1.4)
 
-[node name="GroundEnemy" type="RigidBody3D" groups=["damageables", "targeteables"]]
+[node name="GroundEnemy" type="RigidBody3D" node_paths=PackedStringArray("reaction_animation_player", "detection_area", "beetle_skin", "navigation_agent", "death_collision_shape", "defeat_sound") groups=["damageables", "targeteables"]]
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
 gravity_scale = 0.0
 continuous_cd = true
 lock_rotation = true
-script = ExtResource("1_mefon")
+script = ExtResource("1_8xysi")
+coins_count = 5
+reaction_animation_player = NodePath("ReactionLabel/AnimationPlayer")
+detection_area = NodePath("PlayerDetectionArea")
+beetle_skin = NodePath("BeetlebotSkin")
+navigation_agent = NodePath("NavigationAgent3D")
+death_collision_shape = NodePath("DeathCollisionShape")
+defeat_sound = NodePath("DefeatSound")
 
 [node name="ReactionLabel" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8034, 0)

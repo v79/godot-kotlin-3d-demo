@@ -1,0 +1,30 @@
+// THIS FILE IS GENERATED! DO NOT EDIT, MOVE OR DELETE IT. EDIT, MOVE OR DELETE THE ASSOCIATED SOURCE CODE FILE INSTEAD
+
+registeredName = BeetleBotSkin
+fqName = Enemies.beetleBot.BeetleBotSkin
+baseType = Node3D
+supertypes = [
+    godot.Node3D,
+	godot.Node,
+	godot.Object,
+	godot.core.KtObject,
+	kotlin.Any
+]
+signals = [
+    
+]
+properties = [
+    force_loop,
+	animation_tree,
+	player,
+	secondary_action_timer
+]
+functions = [
+    _ready,
+	on_secondary_action_timer_timeout,
+	idle,
+	walk,
+	shake,
+	attack,
+	power_off
+]

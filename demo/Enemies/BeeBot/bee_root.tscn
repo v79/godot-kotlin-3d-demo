@@ -1,7 +1,7 @@
 [gd_scene load_steps=33 format=3 uid="uid://4nwp6xgihjc7"]
 
-[ext_resource type="Script" path="res://demo/Enemies/BeeBot/bee_root.gd" id="1_eu6t5"]
 [ext_resource type="PackedScene" uid="uid://f0vfmhexafmx" path="res://demo/Enemies/BeeBot/bee_bot.glb" id="1_icaj7"]
+[ext_resource type="Script" path="res://scripts/Enemies/BeeBot/BeeRoot.gdj" id="1_pjy5a"]
 [ext_resource type="Shader" path="res://demo/shared/shaders/face_mat.gdshader" id="2_7vdnh"]
 [ext_resource type="Texture2D" uid="uid://d3i42hq0p8ijb" path="res://demo/shared/eye_mask.png" id="3_qgh3u"]
 [ext_resource type="Shader" path="res://demo/Enemies/BeeBot/bee_wings_shader.gdshader" id="4_hnl3k"]
@@ -1361,8 +1361,10 @@ nodes/StateMachine/position = Vector2(200, 80)
 nodes/output/position = Vector2(400, 80)
 node_connections = [&"output", 0, &"StateMachine"]
 
-[node name="bee_root" type="Node3D"]
-script = ExtResource("1_eu6t5")
+[node name="bee_root" type="Node3D" node_paths=PackedStringArray("state_machine", "bee_bot")]
+script = ExtResource("1_pjy5a")
+state_machine = NodePath("AnimationTree")
+bee_bot = NodePath("bee_bot/Armature/Skeleton3D/bee_bot2")
 
 [node name="bee_bot" parent="." instance=ExtResource("1_icaj7")]
 
