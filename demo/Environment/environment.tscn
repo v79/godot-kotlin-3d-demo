@@ -6,14 +6,14 @@
 [ext_resource type="MultiMesh" uid="uid://dcwmnh5np6hna" path="res://demo/Environment/grass/grass_multimesh.res" id="3_ad6l2"]
 [ext_resource type="Texture2D" uid="uid://ssrlnj65d4bs" path="res://demo/Environment/water/textures/caustic_texture.png" id="3_ltffb"]
 [ext_resource type="Material" uid="uid://c5trc4hy86utg" path="res://demo/Environment/Terrain/terrain_mat.tres" id="3_o2vg7"]
+[ext_resource type="Script" path="res://scripts/Environment/GrassScatter.gdj" id="4_8qf1d"]
 [ext_resource type="Shader" path="res://demo/Environment/waterfall/waterfall.gdshader" id="4_lo1st"]
 [ext_resource type="NavigationMesh" uid="uid://bd73n68dlm7qp" path="res://demo/Environment/environment_navmesh.res" id="5_0k4by"]
 [ext_resource type="PackedScene" uid="uid://dr8slkof1nc8r" path="res://demo/Environment/trees/tree.tscn" id="6_r8kjl"]
 [ext_resource type="Material" uid="uid://ovciasxou830" path="res://demo/Environment/grass/grass_mat.tres" id="7_u5eta"]
 [ext_resource type="PackedScene" uid="uid://drcwbur5pemly" path="res://demo/Environment/tree_trunk/tree_trunk_small.glb" id="8_0wkfp"]
 [ext_resource type="Material" path="res://demo/Environment/dark_bark/dark_bark.tres" id="9_423rm"]
-[ext_resource type="Script" path="res://demo/Environment/grass_scatter.gd" id="9_qev2o"]
-[ext_resource type="Script" path="res://demo/Level/DeathPlane.gd" id="10_evept"]
+[ext_resource type="Script" path="res://scripts/Level/DeathPlane.gdj" id="10_evept"]
 [ext_resource type="Material" uid="uid://cbwea5kec68u6" path="res://demo/Environment/large_tree_trunk/trunk_top/trunk_top.tres" id="10_junlj"]
 [ext_resource type="PackedScene" uid="uid://ciqrpd5675boy" path="res://demo/Player/Player.tscn" id="11_1wby0"]
 [ext_resource type="PackedScene" uid="uid://c28pgdu71100y" path="res://demo/Environment/tree_trunk/tree_trunk_long.glb" id="11_y8l25"]
@@ -93,12 +93,12 @@ shadow_enabled = true
 [node name="World" type="Node3D" parent="."]
 transform = Transform3D(1.35, 0, 0, 0, 1.35, 0, 0, 0, 1.35, 0, 0, 0)
 
-[node name="Grass" type="MultiMeshInstance3D" parent="World"]
+[node name="Grass" type="MultiMeshInstance3D" parent="World" node_paths=PackedStringArray("target_mesh_node")]
 material_override = ExtResource("7_u5eta")
 cast_shadow = 0
 multimesh = ExtResource("3_ad6l2")
-script = ExtResource("9_qev2o")
-target_mesh_path = NodePath("../NavigationRegion3D/Terrain/main_ground")
+script = ExtResource("4_8qf1d")
+target_mesh_node = NodePath("../NavigationRegion3D/Terrain/main_ground")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="World"]
 navigation_mesh = ExtResource("5_0k4by")

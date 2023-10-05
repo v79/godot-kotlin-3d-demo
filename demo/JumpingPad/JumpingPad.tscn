@@ -1,14 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://7j15r0ej4fwx"]
 
-[ext_resource type="Script" path="res://demo/JumpingPad/JumpingPad.gd" id="1_w7mtj"]
+[ext_resource type="Script" path="res://scripts/JumpingPad/JumpingPad.gdj" id="1_w7mtj"]
 [ext_resource type="PackedScene" uid="uid://d3jgve1g030hy" path="res://demo/Environment/mushroom/mushroom.glb" id="2_3e4pb"]
 [ext_resource type="PackedScene" uid="uid://ueivw4w2t3rj" path="res://demo/JumpingPad/JumpingPadVisuals/JumpingPadModel.tscn" id="2_otx0r"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dspj3"]
 size = Vector3(1, 1.4, 1)
 
-[node name="JumpingPad" type="Area3D"]
+[node name="JumpingPad" type="Area3D" node_paths=PackedStringArray("mushroom")]
 script = ExtResource("1_w7mtj")
+mushroom = NodePath("mushroom")
 
 [node name="mushroom" parent="." instance=ExtResource("2_3e4pb")]
 unique_name_in_owner = true

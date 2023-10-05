@@ -11,9 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://dr8slkof1nc8r" path="res://demo/Environment/trees/tree.tscn" id="7_rvx5i"]
 [ext_resource type="Shader" path="res://demo/Environment/water/water_shader.gdshader" id="8_trepf"]
 [ext_resource type="Texture2D" uid="uid://ssrlnj65d4bs" path="res://demo/Environment/water/textures/caustic_texture.png" id="9_8eqnd"]
-[ext_resource type="Script" path="res://demo/Level/DeathPlane.gd" id="9_i1hvo"]
 [ext_resource type="PackedScene" uid="uid://dx8qkjcbt8emp" path="res://demo/Environment/grass/GrassChunk.tscn" id="10_8c06q"]
 [ext_resource type="PackedScene" uid="uid://cn8o7sv1osssk" path="res://demo/Environment/bushes/bush.tscn" id="11_f8df7"]
+[ext_resource type="Script" path="res://scripts/Level/DeathPlane.gdj" id="12_vo5hg"]
 [ext_resource type="PackedScene" uid="uid://cmwyiep10m4u4" path="res://demo/Box/Box.tscn" id="12_xvr0j"]
 [ext_resource type="PackedScene" uid="uid://rn45gytkk6tv" path="res://demo/Enemies/BeeBot.tscn" id="13_012dc"]
 [ext_resource type="PackedScene" uid="uid://oxyn25v5khuk" path="res://demo/Enemies/Beetle.tscn" id="14_tmmem"]
@@ -88,7 +88,7 @@ light_energy = 1.5
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_q87gh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.298, 0.5, -13.017)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16612, -16.5725)
 
 [node name="JumpingPad" parent="." instance=ExtResource("3_w2mh2")]
 transform = Transform3D(0.893364, 0, 0.449335, 0, 1, 0, -0.449335, 0, 0.893364, -35.1316, 6.60685, 19.929)
@@ -380,7 +380,7 @@ mesh = SubResource("PlaneMesh_eflel")
 
 [node name="DeathPlane" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
-script = ExtResource("9_i1hvo")
+script = ExtResource("12_vo5hg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeathPlane"]
 shape = SubResource("BoxShape3D_gym67")

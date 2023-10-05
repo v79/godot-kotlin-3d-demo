@@ -1,0 +1,23 @@
+// THIS FILE IS GENERATED! DO NOT EDIT, MOVE OR DELETE IT. EDIT, MOVE OR DELETE THE ASSOCIATED SOURCE CODE FILE INSTEAD
+
+registeredName = Icone
+fqName = icons.Icone
+baseType = TextureRect
+supertypes = [
+    godot.TextureRect,
+	godot.Control,
+	godot.CanvasItem,
+	godot.Node,
+	godot.Object,
+	godot.core.KtObject,
+	kotlin.Any
+]
+signals = [
+    
+]
+properties = [
+    
+]
+functions = [
+    
+]

@@ -1,0 +1,26 @@
+// THIS FILE IS GENERATED! DO NOT EDIT, MOVE OR DELETE IT. EDIT, MOVE OR DELETE THE ASSOCIATED SOURCE CODE FILE INSTEAD
+
+registeredName = WeaponUI
+fqName = icons.WeaponUI
+baseType = PanelContainer
+supertypes = [
+    godot.PanelContainer,
+	godot.Container,
+	godot.Control,
+	godot.CanvasItem,
+	godot.Node,
+	godot.Object,
+	godot.core.KtObject,
+	kotlin.Any
+]
+signals = [
+    
+]
+properties = [
+    flash_node,
+	grenade_node
+]
+functions = [
+    _ready,
+	switch_to
+]
