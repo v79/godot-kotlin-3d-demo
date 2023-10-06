@@ -14,13 +14,14 @@ import godot.extensions.getNodeAs
 import godot.extensions.instanceAs
 import godot.extensions.loadAs
 import godot.global.GD
+import shared.Damageable
 
 const val COIN_SCENE_PATH = "res://demo/Player/Coin/Coin.tscn"
 const val COINS_COUNT = 5
 const val DESTROYED_BOX_SCENE_PATH = "res://demo/Box/DestroyedBox.tscn"
 
 @RegisterClass
-class Box : RigidBody3D() {
+class Box : RigidBody3D(), Damageable {
     private val disableName = StringName("disabled")
 
     private lateinit var destroySound: AudioStreamPlayer3D
@@ -33,7 +34,7 @@ class Box : RigidBody3D() {
     }
 
     @RegisterFunction
-    fun damage(impactPoint: Vector3, force: Vector3) {
+    override fun damage(impactPoint: Vector3, force: Vector3) {
         for (i in 0 until COINS_COUNT) {
             val coin = ResourceLoader.loadAs<PackedScene>(COIN_SCENE_PATH)!!.instanceAs<Coin>()!!
             getParent()?.addChild(coin)

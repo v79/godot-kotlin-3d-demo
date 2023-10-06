@@ -22,9 +22,10 @@ import godot.core.Vector3
 import godot.core.asStringName
 import godot.extensions.instanceAs
 import godot.extensions.loadAs
+import shared.Damageable
 
 @RegisterClass
-class Beebot : RigidBody3D() {
+class Beebot : RigidBody3D(), Damageable {
 
     @Export
     @RegisterProperty
@@ -109,7 +110,7 @@ class Beebot : RigidBody3D() {
     }
 
     @RegisterFunction
-    fun damage(impactPoint: Vector3, force: Vector3) {
+    override fun damage(impactPoint: Vector3, force: Vector3) {
         applyImpulse(force.limitLength(3.0), impactPoint)
 
         if (!alive) {

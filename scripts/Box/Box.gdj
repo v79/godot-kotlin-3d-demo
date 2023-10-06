@@ -5,6 +5,7 @@ fqName = Box.Box
 baseType = RigidBody3D
 supertypes = [
     godot.RigidBody3D,
+	shared.Damageable,
 	godot.PhysicsBody3D,
 	godot.CollisionObject3D,
 	godot.Node3D,

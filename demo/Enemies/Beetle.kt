@@ -22,9 +22,10 @@ import godot.core.Vector3
 import godot.core.asStringName
 import godot.extensions.instanceAs
 import godot.extensions.loadAs
+import shared.Damageable
 
 @RegisterClass
-class Beetle : RigidBody3D() {
+class Beetle : RigidBody3D(), Damageable {
 
     @Export
     @RegisterProperty
@@ -117,7 +118,7 @@ class Beetle : RigidBody3D() {
     }
 
     @RegisterFunction
-    fun damage(impactPoint: Vector3, force: Vector3) {
+    override fun damage(impactPoint: Vector3, force: Vector3) {
         lockRotation = false
         applyImpulse(force.limitLength(3.0), impactPoint)
 
