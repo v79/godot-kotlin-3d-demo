@@ -1,5 +1,5 @@
 plugins {
-    id("com.utopia-rise.godot-kotlin-jvm") version "0.7.2-4.1.2"
+    id("com.utopia-rise.godot-kotlin-jvm") version "0.9.0-4.2.2"
 }
 
 repositories {

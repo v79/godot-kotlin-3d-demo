@@ -57,8 +57,7 @@ class GrassScatter : MultiMeshInstance3D() {
             val t = Transform3D(
                 Basis(Vector3.UP, 0.0),
                 mdt.getRandomPoint(triangles) + toLocal(targetMeshNode.globalTransform.origin)
-            )
-            t.scale(Vector3.ONE * GD.randfRange(0.6f, 0.1f))
+            ).scaled(Vector3.ONE * GD.randfRange(0.6f, 0.1f))
             multimesh?.setInstanceTransform(i, t)
         }
     }

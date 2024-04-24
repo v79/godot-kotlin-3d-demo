@@ -1,6 +1,5 @@
 package Player
 
-import Player.Coin.Coin
 import godot.HBoxContainer
 import godot.Label
 import godot.Timer
@@ -8,7 +7,7 @@ import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
-import godot.extensions.asNodePath
+import godot.core.asNodePath
 
 private const val HIDDEN_Y_POS = -100
 private const val DISPLAY_Y_POS = 20

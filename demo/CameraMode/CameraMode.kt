@@ -15,7 +15,7 @@ import godot.core.Basis
 import godot.core.Vector3
 import godot.core.asStringName
 import godot.global.GD
-import godot.global.PI
+import godot.util.PI
 
 private const val CAMERA_MODE_TOGGLE_GROUP = "camera_mode_toggle"
 

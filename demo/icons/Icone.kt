@@ -3,7 +3,7 @@ package icons
 import godot.TextureRect
 import godot.annotation.RegisterClass
 import godot.core.Color
-import godot.extensions.asNodePath
+import godot.core.asNodePath
 
 @RegisterClass
 class Icone : TextureRect() {

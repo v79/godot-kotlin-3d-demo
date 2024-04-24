@@ -12,8 +12,8 @@ import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
 import godot.core.Callable
 import godot.core.Color
+import godot.core.asNodePath
 import godot.core.asStringName
-import godot.extensions.asNodePath
 import godot.util.camelToSnakeCase
 
 @RegisterClass

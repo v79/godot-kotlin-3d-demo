@@ -10,7 +10,7 @@ import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
 import godot.core.Vector3
-import godot.extensions.asNodePath
+import godot.core.asNodePath
 
 @RegisterClass
 class JumpingPad : Area3D() {

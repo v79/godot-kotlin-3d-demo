@@ -40,11 +40,11 @@ class CameraController : Node3D() {
 
     @Export
     @RegisterProperty
-    var tiltUpperLimit = GD.deg2rad(-60.0)
+    var tiltUpperLimit = GD.degToRad(-60.0)
 
     @Export
     @RegisterProperty
-    var tiltLowerLimit = GD.deg2rad(60.0)
+    var tiltLowerLimit = GD.degToRad(60.0)
 
     @Export
     @RegisterProperty

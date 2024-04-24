@@ -89,6 +89,10 @@ shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_q87gh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16612, -16.5725)
+bullet_scene = null
+coin_scene = null
+bullet_speed = 10.0
+acceleration = 4.0
 
 [node name="JumpingPad" parent="." instance=ExtResource("3_w2mh2")]
 transform = Transform3D(0.893364, 0, 0.449335, 0, 1, 0, -0.449335, 0, 0.893364, -35.1316, 6.60685, 19.929)
@@ -98,7 +102,6 @@ transform = Transform3D(0.893364, 0, 0.449335, 0, 1, 0, -0.449335, 0, 0.893364, 
 
 [node name="JumpingPad3" parent="." instance=ExtResource("3_w2mh2")]
 transform = Transform3D(0.823187, 0, -0.567772, 0, 1, 0, 0.567772, 0, 0.823187, -43.7, 19.0958, 1.42115)
-impulse_strength = 15.0
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = ExtResource("5_n4asa")
