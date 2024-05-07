@@ -1,5 +1,5 @@
 plugins {
-    id("com.utopia-rise.godot-kotlin-jvm") version "0.9.0-4.2.2"
+    id("com.utopia-rise.godot-kotlin-jvm") version "0.9.1-4.2.2"
 }
 
 repositories {
@@ -7,7 +7,7 @@ repositories {
 }
 
 godot {
-    registrationFileBaseDir.set(projectDir.resolve("scripts").also { it.mkdirs() })
+    registrationFileBaseDir.set(projectDir.resolve("scripts"))
     isRegistrationFileHierarchyEnabled.set(true)
 }
 
