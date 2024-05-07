@@ -11,7 +11,7 @@ import godot.annotation.RegisterFunction
 import godot.core.StringName
 import godot.core.Vector3
 import godot.extensions.getNodeAs
-import godot.extensions.instanceAs
+import godot.extensions.instantiateAs
 import godot.extensions.loadAs
 import godot.global.GD
 import shared.Damageable
@@ -36,13 +36,13 @@ class Box : RigidBody3D(), Damageable {
     @RegisterFunction
     override fun damage(impactPoint: Vector3, force: Vector3) {
         for (i in 0 until COINS_COUNT) {
-            val coin = ResourceLoader.loadAs<PackedScene>(COIN_SCENE_PATH)!!.instanceAs<Coin>()!!
+            val coin = ResourceLoader.loadAs<PackedScene>(COIN_SCENE_PATH)!!.instantiateAs<Coin>()!!
             getParent()?.addChild(coin)
             coin.globalPosition = globalPosition
             coin.spawn()
         }
 
-        val destroyedBox = ResourceLoader.loadAs<PackedScene>(DESTROYED_BOX_SCENE_PATH)!!.instanceAs<DestroyedBox>()!!
+        val destroyedBox = ResourceLoader.loadAs<PackedScene>(DESTROYED_BOX_SCENE_PATH)!!.instantiateAs<DestroyedBox>()!!
         getParent()?.addChild(destroyedBox)
         destroyedBox.globalPosition = globalPosition
 

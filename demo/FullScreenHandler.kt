@@ -15,7 +15,7 @@ class FullScreenHandler : Node() {
         processMode = ProcessMode.PROCESS_MODE_ALWAYS
     }
 
-    override fun _input(event: InputEvent) {
+    override fun _input(event: InputEvent?) {
         if (OS.hasFeature("HTML5")) {
             if (event is InputEventMouseButton && Input.getMouseMode() != Input.MouseMode.MOUSE_MODE_CAPTURED) {
                 Input.setMouseMode(Input.MouseMode.MOUSE_MODE_CAPTURED)

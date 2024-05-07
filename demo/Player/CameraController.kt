@@ -82,7 +82,7 @@ class CameraController : Node3D() {
     private val cameraDownAction = "camera_down".asStringName()
 
     @RegisterFunction
-    override fun _unhandledInput(event: InputEvent) {
+    override fun _unhandledInput(event: InputEvent?) {
         if (event is InputEventMouseMotion && Input.getMouseMode() == Input.MouseMode.MOUSE_MODE_CAPTURED) {
             rotationInput = -event.relative.x * mouseSensitivity
             tiltInput = -event.relative.y * mouseSensitivity
@@ -135,6 +135,7 @@ class CameraController : Node3D() {
     @RegisterFunction
     fun setup(anchor: Player) {
         this.anchor = anchor
+        globalTransform = anchor.globalTransform
         this.offset = this.globalTransform.origin - anchor.globalTransform.origin
         setPivot(CameraPivot.THIRD_PERSON.ordinal)
         camera.globalTransform = camera.globalTransform.interpolateWith(pivot.globalTransform, 0.1)

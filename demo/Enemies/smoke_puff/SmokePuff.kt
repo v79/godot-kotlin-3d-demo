@@ -10,14 +10,15 @@ import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
 import godot.annotation.RegisterSignal
 import godot.core.Callable
+import godot.core.Signal0
 import godot.core.asStringName
-import godot.signals.signal
+import godot.core.signal0
 
 @RegisterClass
 class SmokePuff : Node3D() {
 
     @RegisterSignal
-    val full by signal()
+    val full: Signal0 by signal0()
 
     @Export
     @RegisterProperty

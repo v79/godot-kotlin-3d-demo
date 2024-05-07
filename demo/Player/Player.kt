@@ -20,10 +20,11 @@ import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
 import godot.annotation.RegisterSignal
 import godot.core.Basis
+import godot.core.Signal1
 import godot.core.Vector3
 import godot.core.asStringName
+import godot.core.signal1
 import godot.global.GD
-import godot.signals.signal
 import shared.Damageable
 
 enum class WeaponType {
@@ -34,7 +35,7 @@ enum class WeaponType {
 @RegisterClass
 class Player : CharacterBody3D(), Damageable {
     @RegisterSignal
-    val weaponSwitched by signal<String>("weapon_name")
+    val weaponSwitched by signal1<String>("weapon_name")
 
     @Export
     @RegisterProperty

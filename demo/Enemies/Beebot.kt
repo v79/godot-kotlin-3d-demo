@@ -20,7 +20,7 @@ import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
 import godot.core.Vector3
 import godot.core.asStringName
-import godot.extensions.instanceAs
+import godot.extensions.instantiateAs
 import godot.extensions.loadAs
 import shared.Damageable
 
@@ -96,7 +96,7 @@ class Beebot : RigidBody3D(), Damageable {
                 beeRoot.playSpitAttack()
                 shootCount -= shootTimer
 
-                val bullet = bulletScene.instanceAs<Bullet>()!!
+                val bullet = bulletScene.instantiateAs<Bullet>()!!
                 bullet.shooter = this
                 val origin = globalPosition
                 val target = it.globalPosition + Vector3.UP
@@ -135,7 +135,7 @@ class Beebot : RigidBody3D(), Damageable {
 
     @RegisterFunction
     fun onDeathTimerTimeout() {
-        val puff = puffScene.instanceAs<SmokePuff>()!!
+        val puff = puffScene.instantiateAs<SmokePuff>()!!
         getParent()?.addChild(puff)
         puff.globalPosition = globalPosition
         puff.full.connect(this, Beebot::onPuffOver)
@@ -144,7 +144,7 @@ class Beebot : RigidBody3D(), Damageable {
     @RegisterFunction
     fun onPuffOver(){
         for (i in 0 until coinsCount) {
-            val coin = coinScene.instanceAs<Coin>()!!
+            val coin = coinScene.instantiateAs<Coin>()!!
             getParent()?.addChild(coin)
             coin.globalPosition = globalPosition
             coin.spawn()

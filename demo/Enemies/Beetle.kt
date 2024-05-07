@@ -20,7 +20,7 @@ import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
 import godot.core.Vector3
 import godot.core.asStringName
-import godot.extensions.instanceAs
+import godot.extensions.instantiateAs
 import godot.extensions.loadAs
 import shared.Damageable
 
@@ -145,7 +145,7 @@ class Beetle : RigidBody3D(), Damageable {
 
     @RegisterFunction
     fun onDeathTimerTimeout() {
-        val puff = puffScene.instanceAs<SmokePuff>()!!
+        val puff = puffScene.instantiateAs<SmokePuff>()!!
         getParent()?.addChild(puff)
         puff.globalPosition = globalPosition
         puff.full.connect(this, Beetle::onPuffOver)
@@ -154,7 +154,7 @@ class Beetle : RigidBody3D(), Damageable {
     @RegisterFunction
     fun onPuffOver() {
         for (i in 0 until coinsCount) {
-            val coin = coinScene.instanceAs<Coin>()!!
+            val coin = coinScene.instantiateAs<Coin>()!!
             getParent()?.addChild(coin)
             coin.globalPosition = globalPosition
             coin.spawn()

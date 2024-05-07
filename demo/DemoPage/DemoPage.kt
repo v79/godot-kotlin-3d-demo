@@ -14,7 +14,7 @@ import godot.core.Callable
 import godot.core.Color
 import godot.core.asNodePath
 import godot.core.asStringName
-import godot.util.camelToSnakeCase
+import godot.core.toGodotName
 
 @RegisterClass
 class DemoPage : Node() {
@@ -53,9 +53,9 @@ class DemoPage : Node() {
 
     private var demoMouseMode: Input.MouseMode = Input.MouseMode.MOUSE_MODE_VISIBLE
 
-    private val changeInstructionName = "changeInstruction".camelToSnakeCase().asStringName()
-    private val quitName = "quit".camelToSnakeCase().asStringName()
-    private val hideName = "hide".camelToSnakeCase().asStringName()
+    private val changeInstructionName = "changeInstruction".toGodotName()
+    private val quitName = "quit".toGodotName()
+    private val hideName = "hide".toGodotName()
 
     @RegisterFunction
     override fun _ready() {
@@ -86,8 +86,8 @@ class DemoPage : Node() {
     }
 
     @RegisterFunction
-    override fun _input(event: InputEvent) {
-        if (event.isActionPressed("pause".asStringName()) && !event.isEcho()) {
+    override fun _input(event: InputEvent?) {
+        if (event!!.isActionPressed("pause".asStringName()) && !event.isEcho()) {
             if (getTree()?.paused == true) {
                 resumeDemo()
             } else {

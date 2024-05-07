@@ -19,7 +19,7 @@ class BeetleBotSkin : Node3D() {
 
     @Export
     @RegisterProperty
-    lateinit var forceLoop: PackedStringArray
+    var forceLoop = PackedStringArray()
 
     @Export
     @RegisterProperty
@@ -59,7 +59,7 @@ class BeetleBotSkin : Node3D() {
         if (mainStateMachine.getCurrentNode() == idleName) {
             shake()
         }
-        secondaryActionTimer.start(GD.randdRange(3.0, 8.0))
+        secondaryActionTimer.start(GD.randfRange(3f, 8f).toDouble())
     }
 
     @RegisterFunction

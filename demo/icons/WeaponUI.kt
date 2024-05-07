@@ -1,9 +1,6 @@
 package icons
 
-import godot.Control
-import godot.Node3D
 import godot.PanelContainer
-import godot.TextureRect
 import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction

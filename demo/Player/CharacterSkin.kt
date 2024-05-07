@@ -10,14 +10,15 @@ import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
 import godot.annotation.RegisterSignal
+import godot.core.Signal0
 import godot.core.asStringName
-import godot.signals.signal
+import godot.core.signal0
 
 @RegisterClass
 class CharacterSkin: Node3D() {
 
     @RegisterSignal
-    val footStep by signal()
+    val footStep: Signal0 by signal0()
 
     @Export
     @RegisterProperty
