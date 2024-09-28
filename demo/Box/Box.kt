@@ -1,18 +1,16 @@
 package Box
 
 import Player.Coin.Coin
-import godot.AudioStreamPlayer3D
-import godot.CollisionShape3D
-import godot.PackedScene
-import godot.ResourceLoader
-import godot.RigidBody3D
+import godot.*
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
-import godot.core.StringName
 import godot.core.Vector3
+import godot.core.asCachedStringName
+import godot.coroutines.GodotCoroutine
+import godot.coroutines.awaitDeferred
+import godot.coroutines.awaitLoadAs
 import godot.extensions.getNodeAs
 import godot.extensions.instantiateAs
-import godot.extensions.loadAs
 import godot.global.GD
 import shared.Damageable
 
@@ -22,8 +20,6 @@ const val DESTROYED_BOX_SCENE_PATH = "res://demo/Box/DestroyedBox.tscn"
 
 @RegisterClass
 class Box : RigidBody3D(), Damageable {
-    private val disableName = StringName("disabled")
-
     private lateinit var destroySound: AudioStreamPlayer3D
     private lateinit var collisionShape: CollisionShape3D
 
@@ -35,18 +31,26 @@ class Box : RigidBody3D(), Damageable {
 
     @RegisterFunction
     override fun damage(impactPoint: Vector3, force: Vector3) {
-        for (i in 0 until COINS_COUNT) {
-            val coin = ResourceLoader.loadAs<PackedScene>(COIN_SCENE_PATH)!!.instantiateAs<Coin>()!!
-            getParent()?.addChild(coin)
-            coin.globalPosition = globalPosition
-            coin.spawn()
+        GodotCoroutine {
+            val destroyedBox = ResourceLoader.awaitLoadAs<PackedScene>(DESTROYED_BOX_SCENE_PATH)!!.instantiateAs<DestroyedBox>()!!
+            awaitDeferred {
+                getParent()?.addChild(destroyedBox)
+                destroyedBox.globalPosition = globalPosition
+            }
+
+            val coinScene = ResourceLoader.awaitLoadAs<PackedScene>(COIN_SCENE_PATH)!!
+
+            for (i in 0 until COINS_COUNT) {
+                val coin = coinScene.instantiateAs<Coin>()!!
+                awaitDeferred {
+                    getParent()?.addChild(coin)
+                    coin.globalPosition = globalPosition
+                    coin.spawn()
+                }
+            }
         }
 
-        val destroyedBox = ResourceLoader.loadAs<PackedScene>(DESTROYED_BOX_SCENE_PATH)!!.instantiateAs<DestroyedBox>()!!
-        getParent()?.addChild(destroyedBox)
-        destroyedBox.globalPosition = globalPosition
-
-        collisionShape.setDeferred(disableName, true)
+        collisionShape.setDeferred("disabled".asCachedStringName(), true)
         destroySound.pitchScale = GD.randfn(1.0f, 0.1f)
         destroySound.play()
         destroySound.finished.connect(this, Box::queueFree)

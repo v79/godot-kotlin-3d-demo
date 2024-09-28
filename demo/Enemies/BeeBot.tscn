@@ -171,8 +171,8 @@ size = Vector3(0.1, 0.5, 1)
 
 [node name="FlyingEnemy" type="RigidBody3D" node_paths=PackedStringArray("reaction_animation_player", "flying_animation_player", "detection_area", "death_mesh_collider", "bee_root", "defeat_sound") groups=["damageables", "targeteables"]]
 gravity_scale = 0.0
-continuous_cd = true
 sleeping = true
+continuous_cd = true
 script = ExtResource("1_bir23")
 reaction_animation_player = NodePath("ReactionLabel/AnimationPlayer")
 flying_animation_player = NodePath("MeshRoot/AnimationPlayer")
@@ -180,6 +180,7 @@ detection_area = NodePath("PlayerDetectionArea")
 death_mesh_collider = NodePath("DeathMeshCollider")
 bee_root = NodePath("MeshRoot/bee_root")
 defeat_sound = NodePath("DefeatSound")
+coins_count = 7
 
 [node name="ReactionLabel" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.23854, 0)
@@ -212,10 +213,10 @@ mesh = SubResource("BoxMesh_qjgky")
 skeleton = NodePath("../..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MeshRoot"]
-autoplay = "default"
 libraries = {
 "": SubResource("AnimationLibrary_wnpkd")
 }
+autoplay = "default"
 
 [node name="bee_root" parent="MeshRoot" instance=ExtResource("2_btoc7")]
 transform = Transform3D(0.999781, 0.0209424, 0, -0.0164124, 0.783522, 0.621148, 0.0130083, -0.621012, 0.783694, -0.0294347, -0.348716, 0.106444)

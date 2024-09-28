@@ -6,7 +6,8 @@ fqName = Enemies.Beetle
 relativeSourcePath = demo/Enemies/Beetle.kt
 baseType = RigidBody3D
 supertypes = [
-    godot.RigidBody3D,
+    Enemies.Enemy,
+	godot.RigidBody3D,
 	shared.Damageable,
 	godot.PhysicsBody3D,
 	godot.CollisionObject3D,
@@ -22,20 +23,18 @@ signals = [
 properties = [
     shoot_timer,
 	bullet_speed,
-	coins_count,
 	reaction_animation_player,
 	detection_area,
 	beetle_skin,
 	navigation_agent,
 	death_collision_shape,
-	defeat_sound
+	defeat_sound,
+	coins_count
 ]
 functions = [
     _ready,
 	_physics_process,
 	damage,
-	on_death_timer_timeout,
-	on_puff_over,
 	on_body_entered,
 	on_body_exited
 ]

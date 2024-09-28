@@ -74,7 +74,7 @@ class Grenade: CharacterBody3D() {
         explosionArea3D
             .getOverlappingBodies()
             .filter { body -> body !is Player }
-            .filter { body -> body is Damageable || body.isInGroup("damageable".asStringName()) }
+            .filter { body -> body is Damageable }
             .forEach { body ->
                 val impactPoint = (globalPosition - body.globalPosition)
                     .normalized()
@@ -83,10 +83,8 @@ class Grenade: CharacterBody3D() {
                     }
                 val force = -impactPoint * 10.0
 
-                when {
-                    body is Damageable -> body.damage(impactPoint, force)
-                    body.isInGroup("damageables".asStringName()) ->body.call("damage".asStringName(), impactPoint, force)
-                }
+                require(body is Damageable)
+                body.damage(impactPoint, force)
             }
 
         explosionScene.instantiate()?.let { explosion ->

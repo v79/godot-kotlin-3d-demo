@@ -19,11 +19,7 @@ import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
 import godot.annotation.RegisterSignal
-import godot.core.Basis
-import godot.core.Signal1
-import godot.core.Vector3
-import godot.core.asStringName
-import godot.core.signal1
+import godot.core.*
 import godot.global.GD
 import shared.Damageable
 
@@ -175,7 +171,7 @@ class Player : CharacterBody3D(), Damageable {
         }
 
         // Swap weapons
-        if (Input.isActionJustPressed("swap_weapons".asStringName())) {
+        if (Input.isActionJustPressed("swap_weapons".asCachedStringName())) {
             equipedWeapon = when (equipedWeapon) {
                 WeaponType.DEFAULT -> WeaponType.GRENADE
                 WeaponType.GRENADE -> WeaponType.DEFAULT

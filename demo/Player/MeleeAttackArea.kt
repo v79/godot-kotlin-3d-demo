@@ -33,15 +33,11 @@ class MeleeAttackArea: Area3D() {
 
     @RegisterFunction
     fun onBodyEntered(body: Node3D) {
-        if (body is Damageable || body.isInGroup("damageables".asStringName())) {
+        if (body is Damageable) {
             val impactPoint = globalPosition - body.globalPosition
             val force = -impactPoint
 
-            if (body is Damageable) {
-                body.damage(impactPoint, force)
-            } else {
-                body.call("damage".asStringName(), impactPoint, force)
-            }
+            body.damage(impactPoint, force)
         }
     }
 }

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c8f84qeseq2rk"
 path.s3tc="res://.godot/imported/flower_head_albedo.png-9b2d2592119bd4085ec2c5b252f030d2.s3tc.ctex"
+path.etc2="res://.godot/imported/flower_head_albedo.png-9b2d2592119bd4085ec2c5b252f030d2.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://demo/Environment/flowers/textures/flower_head_albedo.png"
-dest_files=["res://.godot/imported/flower_head_albedo.png-9b2d2592119bd4085ec2c5b252f030d2.s3tc.ctex"]
+dest_files=["res://.godot/imported/flower_head_albedo.png-9b2d2592119bd4085ec2c5b252f030d2.s3tc.ctex", "res://.godot/imported/flower_head_albedo.png-9b2d2592119bd4085ec2c5b252f030d2.etc2.ctex"]
 
 [params]
 

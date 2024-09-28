@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://boexk81is8yhq"
 path.s3tc="res://.godot/imported/gridbox_texture.png-d49c9bec23573781219d2726dce5faba.s3tc.ctex"
+path.etc2="res://.godot/imported/gridbox_texture.png-d49c9bec23573781219d2726dce5faba.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://demo/Level/gridbox_texture.png"
-dest_files=["res://.godot/imported/gridbox_texture.png-d49c9bec23573781219d2726dce5faba.s3tc.ctex"]
+dest_files=["res://.godot/imported/gridbox_texture.png-d49c9bec23573781219d2726dce5faba.s3tc.ctex", "res://.godot/imported/gridbox_texture.png-d49c9bec23573781219d2726dce5faba.etc2.ctex"]
 
 [params]
 

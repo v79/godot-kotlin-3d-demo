@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://xyoxovlnkwl"
 path.s3tc="res://.godot/imported/target_frame_mask.png-0165cf88579d62b316f9ee354c049c9a.s3tc.ctex"
+path.etc2="res://.godot/imported/target_frame_mask.png-0165cf88579d62b316f9ee354c049c9a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://demo/Player/GrenadeVisuals/textures/target_frame_mask.png"
-dest_files=["res://.godot/imported/target_frame_mask.png-0165cf88579d62b316f9ee354c049c9a.s3tc.ctex"]
+dest_files=["res://.godot/imported/target_frame_mask.png-0165cf88579d62b316f9ee354c049c9a.s3tc.ctex", "res://.godot/imported/target_frame_mask.png-0165cf88579d62b316f9ee354c049c9a.etc2.ctex"]
 
 [params]
 

@@ -20,12 +20,15 @@ import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
 import godot.core.Vector3
 import godot.core.asStringName
+import godot.coroutines.GodotCoroutine
+import godot.coroutines.await
+import godot.coroutines.awaitDeferred
 import godot.extensions.instantiateAs
 import godot.extensions.loadAs
 import shared.Damageable
 
 @RegisterClass
-class Beebot : RigidBody3D(), Damageable {
+class Beebot : Enemy() {
 
     @Export
     @RegisterProperty
@@ -34,10 +37,6 @@ class Beebot : RigidBody3D(), Damageable {
     @Export
     @RegisterProperty
     var bulletSpeed = 6.0
-
-    @Export
-    @RegisterProperty
-    var coinsCount = 5
 
     @Export
     @RegisterProperty
@@ -64,8 +63,6 @@ class Beebot : RigidBody3D(), Damageable {
     lateinit var defeatSound: AudioStreamPlayer3D
 
     private val bulletScene =  ResourceLoader.loadAs<PackedScene>("res://demo/Player/Bullet.tscn")!!
-    private val puffScene =  ResourceLoader.loadAs<PackedScene>("res://demo/Enemies/smoke_puff/smoke_puff.tscn")!!
-    private val coinScene = ResourceLoader.loadAs<PackedScene>("res://demo/Player/Coin/Coin.tscn")!!
 
     private val foundPlayerName = "found_player".asStringName()
     private val lostPlayerName = "lost_player".asStringName()
@@ -130,26 +127,7 @@ class Beebot : RigidBody3D(), Damageable {
         gravityScale = 1.0f
         beeRoot.playPoweroff()
 
-        getTree()!!.createTimer(2.0)!!.timeout.connect(this, Beebot::onDeathTimerTimeout)
-    }
-
-    @RegisterFunction
-    fun onDeathTimerTimeout() {
-        val puff = puffScene.instantiateAs<SmokePuff>()!!
-        getParent()?.addChild(puff)
-        puff.globalPosition = globalPosition
-        puff.full.connect(this, Beebot::onPuffOver)
-    }
-
-    @RegisterFunction
-    fun onPuffOver(){
-        for (i in 0 until coinsCount) {
-            val coin = coinScene.instantiateAs<Coin>()!!
-            getParent()?.addChild(coin)
-            coin.globalPosition = globalPosition
-            coin.spawn()
-        }
-        queueFree()
+        death()
     }
 
     @RegisterFunction

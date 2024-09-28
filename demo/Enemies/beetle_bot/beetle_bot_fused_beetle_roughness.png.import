@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d00kps1fgnbvy"
 path.s3tc="res://.godot/imported/beetle_bot_fused_beetle_roughness.png-7b3a40a02f03a406369f67b9157008aa.s3tc.ctex"
+path.etc2="res://.godot/imported/beetle_bot_fused_beetle_roughness.png-7b3a40a02f03a406369f67b9157008aa.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://demo/Enemies/beetle_bot/beetle_bot_fused_beetle_roughness.png"
-dest_files=["res://.godot/imported/beetle_bot_fused_beetle_roughness.png-7b3a40a02f03a406369f67b9157008aa.s3tc.ctex"]
+dest_files=["res://.godot/imported/beetle_bot_fused_beetle_roughness.png-7b3a40a02f03a406369f67b9157008aa.s3tc.ctex", "res://.godot/imported/beetle_bot_fused_beetle_roughness.png-7b3a40a02f03a406369f67b9157008aa.etc2.ctex"]
 
 [params]
 

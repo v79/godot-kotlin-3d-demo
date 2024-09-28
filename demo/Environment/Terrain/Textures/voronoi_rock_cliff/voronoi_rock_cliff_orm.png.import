@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c5t0wkqsdvy0a"
 path.s3tc="res://.godot/imported/voronoi_rock_cliff_orm.png-ba18340091d0924f696ac56fd403e4c3.s3tc.ctex"
+path.etc2="res://.godot/imported/voronoi_rock_cliff_orm.png-ba18340091d0924f696ac56fd403e4c3.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://demo/Environment/Terrain/Textures/voronoi_rock_cliff/voronoi_rock_cliff_orm.png"
-dest_files=["res://.godot/imported/voronoi_rock_cliff_orm.png-ba18340091d0924f696ac56fd403e4c3.s3tc.ctex"]
+dest_files=["res://.godot/imported/voronoi_rock_cliff_orm.png-ba18340091d0924f696ac56fd403e4c3.s3tc.ctex", "res://.godot/imported/voronoi_rock_cliff_orm.png-ba18340091d0924f696ac56fd403e4c3.etc2.ctex"]
 
 [params]
 

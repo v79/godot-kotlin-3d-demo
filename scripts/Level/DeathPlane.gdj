@@ -21,6 +21,5 @@ properties = [
     
 ]
 functions = [
-    _ready,
-	on_body_entered
+    _ready
 ]

@@ -67,16 +67,17 @@ class Bullet: Node3D() {
     @RegisterFunction
     fun onBodyEntered(body: Node3D) {
         if (body == shooter) return
-        if (body.isInGroup("damageables".asStringName())) {
-            val impactPoint = globalPosition - body.globalPosition
 
-            if (body is Damageable) {
-                // efficient for kotlin scripts
-                body.damage(impactPoint, velocity)
-            } else if (body.hasMethod("damage".asStringName())) {
-                // more expensive for any other language
-                body.call("damage".asStringName(), impactPoint, velocity)
-            }
+        val impactPoint = globalPosition - body.globalPosition
+
+        if (body is Damageable) {
+            body.damage(impactPoint, velocity)
         }
+
+//        if (body.isInGroup("damageables".asStringName())) {
+//            if (body.hasMethod("damage".asStringName())) {
+//                body.call("damage".asStringName(), impactPoint, velocity)
+//            }
+//        }
     }
 }

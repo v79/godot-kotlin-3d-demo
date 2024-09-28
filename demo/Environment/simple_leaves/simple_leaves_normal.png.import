@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cu1fm3jggdcgv"
 path.s3tc="res://.godot/imported/simple_leaves_normal.png-0c4c40dece0bf7fc2ee89f672c251ff3.s3tc.ctex"
+path.etc2="res://.godot/imported/simple_leaves_normal.png-0c4c40dece0bf7fc2ee89f672c251ff3.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://demo/Environment/simple_leaves/simple_leaves_normal.png"
-dest_files=["res://.godot/imported/simple_leaves_normal.png-0c4c40dece0bf7fc2ee89f672c251ff3.s3tc.ctex"]
+dest_files=["res://.godot/imported/simple_leaves_normal.png-0c4c40dece0bf7fc2ee89f672c251ff3.s3tc.ctex", "res://.godot/imported/simple_leaves_normal.png-0c4c40dece0bf7fc2ee89f672c251ff3.etc2.ctex"]
 
 [params]
 
