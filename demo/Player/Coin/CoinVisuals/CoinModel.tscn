@@ -7,4 +7,3 @@
 
 [node name="godot_coin" parent="." instance=ExtResource("1_0qdgb")]
 script = ExtResource("2_qdc72")
-y_amplitude = 0.5
