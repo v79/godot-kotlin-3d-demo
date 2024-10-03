@@ -5,10 +5,10 @@ import godot.*
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
 import godot.core.Vector3
-import godot.coroutines.GodotCoroutine
 import godot.coroutines.await
-import godot.coroutines.awaitDeferred
 import godot.coroutines.awaitLoadAs
+import godot.coroutines.awaitMainThread
+import godot.coroutines.godotCoroutine
 import godot.extensions.getNodeAs
 import godot.extensions.instantiateAs
 import godot.global.GD
@@ -31,9 +31,9 @@ class Box : RigidBody3D(), Damageable {
 
     @RegisterFunction
     override fun damage(impactPoint: Vector3, velocity: Vector3) {
-        GodotCoroutine {
+        godotCoroutine {
             val destroyedBox = ResourceLoader.awaitLoadAs<PackedScene>(DESTROYED_BOX_SCENE_PATH)!!.instantiateAs<DestroyedBox>()!!
-            awaitDeferred {
+            awaitMainThread {
                 getParent()?.addChild(destroyedBox)
                 destroyedBox.globalPosition = globalPosition
             }
@@ -42,14 +42,14 @@ class Box : RigidBody3D(), Damageable {
 
             for (i in 0 until COINS_COUNT) {
                 val coin = coinScene.instantiateAs<Coin>()!!
-                awaitDeferred {
+                awaitMainThread {
                     getParent()?.addChild(coin)
                     coin.globalPosition = globalPosition
                     coin.spawn()
                 }
             }
 
-            awaitDeferred {
+            awaitMainThread {
                 collisionShape.disabled = true
 
                 destroySound.pitchScale = GD.randfn(1.0f, 0.1f)

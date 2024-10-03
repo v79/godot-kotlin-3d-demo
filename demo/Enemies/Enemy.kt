@@ -7,9 +7,9 @@ import godot.ResourceLoader
 import godot.RigidBody3D
 import godot.annotation.Export
 import godot.annotation.RegisterProperty
-import godot.coroutines.GodotCoroutine
 import godot.coroutines.await
-import godot.coroutines.awaitDeferred
+import godot.coroutines.awaitMainThread
+import godot.coroutines.godotCoroutine
 import godot.extensions.instantiateAs
 import godot.extensions.loadAs
 import shared.Damageable
@@ -24,18 +24,18 @@ abstract class Enemy : RigidBody3D(), Damageable {
 
     fun death() {
         val timer = getTree()!!.createTimer(2.0)!!
-        GodotCoroutine {
+        godotCoroutine {
             timer.timeout.await()
 
             val puff = puffScene.instantiateAs<SmokePuff>()!!
-            awaitDeferred {
+            awaitMainThread {
                 getParent()?.addChild(puff)
                 puff.globalPosition = globalPosition
             }
 
             for (i in 0 until coinsCount) {
                 val coin = coinScene.instantiateAs<Coin>()!!
-                awaitDeferred {
+                awaitMainThread {
                     getParent()?.addChild(coin)
                     coin.globalPosition = globalPosition
                     coin.spawn()

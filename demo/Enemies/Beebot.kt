@@ -13,19 +13,14 @@ import godot.Node
 import godot.Node3D
 import godot.PackedScene
 import godot.ResourceLoader
-import godot.RigidBody3D
 import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
 import godot.annotation.RegisterProperty
 import godot.core.Vector3
 import godot.core.asStringName
-import godot.coroutines.GodotCoroutine
-import godot.coroutines.await
-import godot.coroutines.awaitDeferred
 import godot.extensions.instantiateAs
 import godot.extensions.loadAs
-import shared.Damageable
 
 @RegisterClass
 class Beebot : Enemy() {
