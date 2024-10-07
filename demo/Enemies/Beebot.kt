@@ -27,6 +27,10 @@ class Beebot : Enemy() {
 
     @Export
     @RegisterProperty
+    override var coinsCount = 7
+
+    @Export
+    @RegisterProperty
     var shootTimer = 1.5
 
     @Export

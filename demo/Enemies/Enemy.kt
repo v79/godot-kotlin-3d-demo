@@ -17,7 +17,7 @@ import shared.Damageable
 abstract class Enemy : RigidBody3D(), Damageable {
     @Export
     @RegisterProperty
-    var coinsCount = 5
+    abstract var coinsCount: Int
 
     private val puffScene = ResourceLoader.loadAs<PackedScene>("res://demo/Enemies/smoke_puff/smoke_puff.tscn")!!
     private val coinScene = ResourceLoader.loadAs<PackedScene>("res://demo/Player/Coin/Coin.tscn")!!

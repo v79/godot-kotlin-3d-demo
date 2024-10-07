@@ -29,6 +29,10 @@ class Beetle : Enemy() {
 
     @Export
     @RegisterProperty
+    override var coinsCount = 5
+
+    @Export
+    @RegisterProperty
     var shootTimer = 1.5
 
     @Export

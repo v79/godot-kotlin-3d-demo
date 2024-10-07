@@ -180,7 +180,6 @@ detection_area = NodePath("PlayerDetectionArea")
 death_mesh_collider = NodePath("DeathMeshCollider")
 bee_root = NodePath("MeshRoot/bee_root")
 defeat_sound = NodePath("DefeatSound")
-coins_count = 7
 
 [node name="ReactionLabel" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.23854, 0)
