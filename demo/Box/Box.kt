@@ -40,16 +40,17 @@ class Box : RigidBody3D(), Damageable {
 
             val coinScene = ResourceLoader.awaitLoadAs<PackedScene>(COIN_SCENE_PATH)!!
 
-            for (i in 0 until COINS_COUNT) {
-                val coin = coinScene.instantiateAs<Coin>()!!
-                awaitMainThread {
+            val coins = List(COINS_COUNT) {
+                coinScene.instantiateAs<Coin>()!!
+            }
+
+            awaitMainThread {
+                for (coin in coins) {
                     getParent()?.addChild(coin)
                     coin.globalPosition = globalPosition
                     coin.spawn()
                 }
-            }
 
-            awaitMainThread {
                 collisionShape.disabled = true
 
                 destroySound.pitchScale = GD.randfn(1.0f, 0.1f)

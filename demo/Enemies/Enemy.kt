@@ -33,14 +33,18 @@ abstract class Enemy : RigidBody3D(), Damageable {
                 puff.globalPosition = globalPosition
             }
 
-            for (i in 0 until coinsCount) {
-                val coin = coinScene.instantiateAs<Coin>()!!
-                awaitMainThread {
+            val coins = List(coinsCount) {
+                coinScene.instantiateAs<Coin>()!!
+            }
+
+            awaitMainThread {
+                for (coin in coins) {
                     getParent()?.addChild(coin)
                     coin.globalPosition = globalPosition
                     coin.spawn()
                 }
             }
+
             queueFree()
         }
     }

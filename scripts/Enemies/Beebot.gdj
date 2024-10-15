@@ -6,7 +6,7 @@ fqName = Enemies.Beebot
 relativeSourcePath = demo/Enemies/Beebot.kt
 baseType = RigidBody3D
 supertypes = [
-    Enemies.Enemy,
+	Enemies.Enemy,
 	godot.RigidBody3D,
 	shared.Damageable,
 	godot.PhysicsBody3D,
@@ -18,21 +18,21 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-    
+	
 ]
 properties = [
-    shoot_timer,
+	coins_count,
+	shoot_timer,
 	bullet_speed,
 	reaction_animation_player,
 	flying_animation_player,
 	detection_area,
 	death_mesh_collider,
 	bee_root,
-	defeat_sound,
-	coins_count
+	defeat_sound
 ]
 functions = [
-    _ready,
+	_ready,
 	_physics_process,
 	damage,
 	on_body_entered,

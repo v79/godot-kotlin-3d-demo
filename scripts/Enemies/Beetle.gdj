@@ -6,7 +6,7 @@ fqName = Enemies.Beetle
 relativeSourcePath = demo/Enemies/Beetle.kt
 baseType = RigidBody3D
 supertypes = [
-    Enemies.Enemy,
+	Enemies.Enemy,
 	godot.RigidBody3D,
 	shared.Damageable,
 	godot.PhysicsBody3D,
@@ -18,21 +18,21 @@ supertypes = [
 	kotlin.Any
 ]
 signals = [
-    
+	
 ]
 properties = [
-    shoot_timer,
+	coins_count,
+	shoot_timer,
 	bullet_speed,
 	reaction_animation_player,
 	detection_area,
 	beetle_skin,
 	navigation_agent,
 	death_collision_shape,
-	defeat_sound,
-	coins_count
+	defeat_sound
 ]
 functions = [
-    _ready,
+	_ready,
 	_physics_process,
 	damage,
 	on_body_entered,
