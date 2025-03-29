@@ -1,6 +1,6 @@
 package icons
 
-import godot.TextureRect
+import godot.api.TextureRect
 import godot.annotation.RegisterClass
 import godot.core.Color
 import godot.core.asNodePath

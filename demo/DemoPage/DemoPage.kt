@@ -1,11 +1,11 @@
 package DemoPage
 
-import godot.Button
-import godot.Control
-import godot.GridContainer
-import godot.Input
-import godot.InputEvent
-import godot.Node
+import godot.api.Button
+import godot.api.Control
+import godot.api.GridContainer
+import godot.api.Input
+import godot.api.InputEvent
+import godot.api.Node
 import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction

@@ -1,8 +1,8 @@
 package Level
 
 import Player.Player
-import godot.Area3D
-import godot.Node
+import godot.api.Area3D
+import godot.api.Node
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
 import godot.core.connect

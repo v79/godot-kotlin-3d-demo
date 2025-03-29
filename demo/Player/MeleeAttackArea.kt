@@ -1,8 +1,8 @@
 package Player
 
-import godot.Area3D
-import godot.CollisionShape3D
-import godot.Node3D
+import godot.api.Area3D
+import godot.api.CollisionShape3D
+import godot.api.Node3D
 import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction

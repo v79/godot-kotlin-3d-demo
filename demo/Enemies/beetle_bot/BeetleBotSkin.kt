@@ -1,11 +1,11 @@
 package Enemies.beetleBot
 
-import godot.Animation
-import godot.AnimationNodeStateMachinePlayback
-import godot.AnimationPlayer
-import godot.AnimationTree
-import godot.Node3D
-import godot.Timer
+import godot.api.Animation
+import godot.api.AnimationNodeStateMachinePlayback
+import godot.api.AnimationPlayer
+import godot.api.AnimationTree
+import godot.api.Node3D
+import godot.api.Timer
 import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction

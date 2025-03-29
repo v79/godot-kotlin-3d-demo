@@ -1,10 +1,10 @@
 package Player
 
-import godot.AnimationNodeOneShot
-import godot.AnimationNodeStateMachinePlayback
-import godot.AnimationPlayer
-import godot.AnimationTree
-import godot.Node3D
+import godot.api.AnimationNodeOneShot
+import godot.api.AnimationNodeStateMachinePlayback
+import godot.api.AnimationPlayer
+import godot.api.AnimationTree
+import godot.api.Node3D
 import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction

@@ -1,8 +1,8 @@
 package Player
 
-import godot.HBoxContainer
-import godot.Label
-import godot.Timer
+import godot.api.HBoxContainer
+import godot.api.Label
+import godot.api.Timer
 import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction

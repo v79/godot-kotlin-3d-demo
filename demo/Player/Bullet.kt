@@ -1,10 +1,10 @@
 package Player
 
-import godot.Area3D
-import godot.AudioStreamPlayer3D
-import godot.Curve
-import godot.Node
-import godot.Node3D
+import godot.api.Area3D
+import godot.api.AudioStreamPlayer3D
+import godot.api.Curve
+import godot.api.Node
+import godot.api.Node3D
 import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction

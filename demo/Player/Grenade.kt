@@ -1,12 +1,12 @@
 package Player
 
-import godot.Area3D
-import godot.AudioStreamPlayer3D
-import godot.CharacterBody3D
-import godot.Node3D
-import godot.PackedScene
-import godot.ProjectSettings
-import godot.Timer
+import godot.api.Area3D
+import godot.api.AudioStreamPlayer3D
+import godot.api.CharacterBody3D
+import godot.api.Node3D
+import godot.api.PackedScene
+import godot.api.ProjectSettings
+import godot.api.Timer
 import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction

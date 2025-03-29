@@ -1,7 +1,7 @@
 package DemoPage
 
-import godot.OS
-import godot.TextureButton
+import godot.api.OS
+import godot.api.TextureButton
 import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction

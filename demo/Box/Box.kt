@@ -1,7 +1,7 @@
 package Box
 
 import Player.Coin.Coin
-import godot.*
+import godot.api.*
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
 import godot.core.Vector3
@@ -9,8 +9,8 @@ import godot.coroutines.await
 import godot.coroutines.awaitLoadAs
 import godot.coroutines.awaitMainThread
 import godot.coroutines.godotCoroutine
-import godot.extensions.getNodeAs
-import godot.extensions.instantiateAs
+import godot.extension.getNodeAs
+import godot.extension.instantiateAs
 import godot.global.GD
 import shared.Damageable
 

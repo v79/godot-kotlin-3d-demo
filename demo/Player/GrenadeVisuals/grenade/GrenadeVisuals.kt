@@ -1,7 +1,7 @@
 package Player.GrenadeVisuals.grenade
 
-import godot.AnimationPlayer
-import godot.Node3D
+import godot.api.AnimationPlayer
+import godot.api.Node3D
 import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction

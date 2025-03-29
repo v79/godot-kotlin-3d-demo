@@ -1,10 +1,10 @@
 package JumpingPad
 
 import Player.Player
-import godot.Area3D
-import godot.Node
-import godot.Node3D
-import godot.Tween
+import godot.api.Area3D
+import godot.api.Node
+import godot.api.Node3D
+import godot.api.Tween
 import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction

@@ -1,16 +1,16 @@
 package Player
 
-import godot.CharacterBody3D
-import godot.Engine
-import godot.Marker3D
-import godot.Mesh
-import godot.MeshInstance3D
-import godot.Node3D
-import godot.PackedScene
-import godot.PhysicsServer3D
-import godot.ProjectSettings
-import godot.ShapeCast3D
-import godot.SurfaceTool
+import godot.api.CharacterBody3D
+import godot.api.Engine
+import godot.api.Marker3D
+import godot.api.Mesh
+import godot.api.MeshInstance3D
+import godot.api.Node3D
+import godot.api.PackedScene
+import godot.api.PhysicsServer3D
+import godot.api.ProjectSettings
+import godot.api.ShapeCast3D
+import godot.api.SurfaceTool
 import godot.annotation.Export
 import godot.annotation.RegisterClass
 import godot.annotation.RegisterFunction
